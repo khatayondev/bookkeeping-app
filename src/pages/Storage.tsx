@@ -70,7 +70,7 @@ export default function Storage() {
         <button
           onClick={refreshStorageData}
           disabled={isChecking}
-          className="text-xs text-primary font-bold hover:underline min-h-[44px] px-2.5 py-1 flex items-center"
+          className="text-xs text-[#C85600] dark:text-[#FF8A00] font-bold hover:underline min-h-[44px] px-2.5 py-1 flex items-center"
         >
           {isChecking ? 'Checking…' : 'Refresh'}
         </button>
@@ -150,7 +150,7 @@ export default function Storage() {
             <span className="text-[11px] text-gray-500 dark:text-gray-400 block mb-0.5">
               Remaining Space
             </span>
-            <span className="text-base font-bold font-mono text-primary">
+            <span className="text-base font-bold font-mono text-[#C85600] dark:text-[#FF8A00]">
               {formatBytes(storageInfo?.remainingBytes ?? 0)}
             </span>
           </div>
@@ -204,12 +204,15 @@ export default function Storage() {
       </Card>
 
       {/* ── Quick Link to Backup ───────────────────── */}
-      <Link to="/more/backup" className="block pt-1" aria-label="Go to Backup & Restore">
-        <Button className="w-full min-h-[48px] py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm">
+      <div className="pt-1">
+        <Link
+          to="/more/backup"
+          className="w-full min-h-[48px] py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-2xl flex items-center justify-center gap-2 shadow-sm transition-all"
+        >
           <span>💾</span>
           <span>Go to Backup &amp; Restore</span>
-        </Button>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 }

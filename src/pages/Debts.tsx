@@ -83,33 +83,35 @@ export default function Debts() {
       {/* ── Page Header ───────────────────────── */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold">Debts & Credit</h2>
-          <p className="text-xs text-gray-600 dark:text-gray-300">
+          <h2 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">
+            Debts &amp; Credit
+          </h2>
+          <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
             Track money owed to you and money you owe
           </p>
         </div>
-        <Button
-          variant="primary"
-          className="min-h-[44px] px-3.5 py-2 text-sm flex items-center gap-1.5 shadow-sm"
+        <button
+          type="button"
+          className="min-h-[44px] px-4 py-2 text-sm font-bold rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 flex items-center gap-1.5 shadow-md active:scale-95 transition-all"
           onClick={openAddModal}
         >
           <span>➕</span> New Debt
-        </Button>
+        </button>
       </div>
 
       {/* ── Summary Strip (Matches Dashboard) ─── */}
       <DebtSummaryStrip />
 
-      {/* ── Tabs: Owed to me vs I owe ─────────── */}
-      <div className="flex rounded-lg bg-gray-200 dark:bg-gray-800 p-1" role="tablist" aria-label="Debt categories">
+      {/* ── Tabs: Owed to me vs I owe (Design Match: Capsule Pills) ─────────── */}
+      <div className="flex gap-2 text-xs font-semibold overflow-x-auto py-1" role="tablist" aria-label="Debt categories">
         <button
           type="button"
           role="tab"
           aria-selected={activeTab === "owed_to_me"}
-          className={`flex-1 min-h-[44px] py-2 text-sm font-semibold rounded-md transition-all ${
+          className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 font-bold ${
             activeTab === "owed_to_me"
-              ? "bg-white dark:bg-gray-700 text-emerald-800 dark:text-emerald-300 shadow-sm"
-              : "text-gray-700 dark:text-gray-300 hover:text-gray-950 dark:hover:text-white"
+              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              : "bg-white dark:bg-[#16171B] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-800 hover:border-gray-400"
           }`}
           onClick={() => setActiveTab("owed_to_me")}
         >
@@ -119,10 +121,10 @@ export default function Debts() {
           type="button"
           role="tab"
           aria-selected={activeTab === "i_owe"}
-          className={`flex-1 min-h-[44px] py-2 text-sm font-semibold rounded-md transition-all ${
+          className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 font-bold ${
             activeTab === "i_owe"
-              ? "bg-white dark:bg-gray-700 text-red-800 dark:text-red-300 shadow-sm"
-              : "text-gray-700 dark:text-gray-300 hover:text-gray-950 dark:hover:text-white"
+              ? "bg-[#FF6E00] text-white shadow-xs"
+              : "bg-white dark:bg-[#16171B] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-800 hover:border-gray-400"
           }`}
           onClick={() => setActiveTab("i_owe")}
         >
@@ -139,7 +141,7 @@ export default function Debts() {
         <button
           type="button"
           onClick={() => setShowSettled(!showSettled)}
-          className="hover:underline font-semibold text-primary min-h-[44px] py-2 px-1 flex items-center"
+          className="hover:underline font-bold text-[#C85600] dark:text-[#FF8A00] min-h-[44px] py-2 px-1 flex items-center"
         >
           {showSettled ? "Hide settled debts" : "Show settled debts"}
         </button>
@@ -147,13 +149,13 @@ export default function Debts() {
 
       {/* ── Debt List ─────────────────────────── */}
       {debts.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center bg-white/50 dark:bg-gray-800/50">
+        <div className="rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center bg-white/50 dark:bg-gray-800/50">
           <span className="text-3xl block mb-2">🤝</span>
           <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
             No {activeTab === "owed_to_me" ? "money owed to you" : "debts you owe"}
             {!showSettled ? " currently open" : ""}
           </p>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 font-medium">
             Tap &ldquo;New Debt&rdquo; above to record a new debt
           </p>
         </div>
@@ -175,10 +177,10 @@ export default function Debts() {
                     setSelectedDebt(debt);
                   }
                 }}
-                className={`w-full text-left rounded-xl p-3.5 border transition-all shadow-sm flex items-center justify-between gap-3 bg-white dark:bg-gray-800 cursor-pointer ${
+                className={`w-full text-left rounded-2xl p-4 border transition-all shadow-2xs flex items-center justify-between gap-3 bg-white dark:bg-[#16171B] cursor-pointer ${
                   overdue
                     ? "border-red-300 dark:border-red-800/80 bg-red-50/20 dark:bg-red-950/10"
-                    : "border-gray-200 dark:border-gray-700 hover:border-primary/50"
+                    : "border-gray-100 dark:border-zinc-800 hover:border-[#FF6E00]/60"
                 }`}
               >
                 {/* Left: Person Name & Due Date */}

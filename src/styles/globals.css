@@ -19,7 +19,7 @@ body {
 
 /* Accessible, high-contrast focus rings for keyboard navigation */
 :focus-visible {
-  outline: 2px solid #EA580C;
+  outline: 2px solid #FF6E00;
   outline-offset: 2px;
 }
 
@@ -28,7 +28,7 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #EA580C;
+  outline: 2px solid #FF6E00;
   outline-offset: 2px;
 }
 

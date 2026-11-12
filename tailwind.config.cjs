@@ -6,18 +6,22 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#EA580C', // warm honey-orange primary matching design
-          hover: '#C2410C',
-          light: '#FFF7ED',
-          dark: '#9A3412',
+          DEFAULT: '#FF6E00', // vibrant signature orange from design
+          hover: '#E56300',
+          light: '#FFF4EB',
+          dark: '#CC5800',
+        },
+        dark: {
+          card: '#111111', // deep charcoal black from design
+          cardHover: '#1A1A1A',
         },
         honey: {
-          50: '#FFFDF7',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#FFA200', // Honey Palace Africa primary brand color
+          50: '#FFF9F5',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#FF6E00', // core vibrant orange
           600: '#EA580C',
           700: '#C2410C',
           800: '#9A3412',
@@ -25,15 +29,20 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Outfit', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       fontSize: {
         base: ['1rem', '1.5rem'],
+      },
+      borderRadius: {
+        '2xl': '1.25rem', // 20px
+        '3xl': '1.75rem', // 28px
       },
     },
   },
   plugins: [],
 };
+
 
 
 

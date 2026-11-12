@@ -135,7 +135,7 @@ export default function Calculator() {
       <div className="flex items-center justify-between mb-3">
         <Link
           to="/more"
-          className="text-primary text-sm font-semibold hover:underline inline-flex items-center gap-1 min-h-[44px] px-1"
+          className="text-[#C85600] dark:text-[#FF8A00] text-sm font-semibold hover:underline inline-flex items-center gap-1 min-h-[44px] px-1"
           aria-label="Back to More"
         >
           ← More
@@ -149,9 +149,9 @@ export default function Calculator() {
         <button
           type="button"
           aria-pressed={mode === "calc"}
-          className={`flex-1 min-h-[48px] py-2 rounded-lg font-semibold text-sm transition-colors ${
+          className={`flex-1 min-h-[48px] py-2 rounded-xl font-bold text-sm transition-colors ${
             mode === "calc"
-              ? "bg-primary text-white"
+              ? "bg-[#111111] text-white dark:bg-white dark:text-black shadow-xs"
               : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
           }`}
           onClick={() => switchMode("calc")}
@@ -161,9 +161,9 @@ export default function Calculator() {
         <button
           type="button"
           aria-pressed={mode === "change"}
-          className={`flex-1 min-h-[48px] py-2 rounded-lg font-semibold text-sm transition-colors ${
+          className={`flex-1 min-h-[48px] py-2 rounded-xl font-bold text-sm transition-colors ${
             mode === "change"
-              ? "bg-primary text-white"
+              ? "bg-[#111111] text-white dark:bg-white dark:text-black shadow-xs"
               : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
           }`}
           onClick={() => switchMode("change")}
