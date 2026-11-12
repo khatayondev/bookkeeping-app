@@ -132,7 +132,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
       role="dialog"
       aria-modal="true"
       aria-label="PIN Lock Screen"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/95 p-4 text-gray-100 backdrop-blur-md"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-gray-900/95 p-4 text-gray-100 backdrop-blur-md"
     >
       <div className="w-full max-w-sm space-y-6">
         {/* App Title & Lock Icon */}
@@ -274,7 +274,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-60 flex items-center justify-center bg-black/80 p-4"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/80 p-4"
         >
           <Card className="w-full max-w-sm bg-gray-800 text-gray-100 border border-gray-700 space-y-4 p-5 rounded-2xl shadow-2xl">
             <div className="flex items-center justify-between">

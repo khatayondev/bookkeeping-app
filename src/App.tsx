@@ -61,7 +61,7 @@ function AppContent() {
           </div>
         </div>
       </header>
-      <main className="flex-1 overflow-y-auto px-4 py-2 max-w-md mx-auto w-full">
+      <main className="flex-1 overflow-y-auto px-4 pt-2 pb-24 safe-pb max-w-md mx-auto w-full">
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/transactions" element={<Transactions />} />
