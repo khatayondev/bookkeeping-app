@@ -95,20 +95,20 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── Monochromatic Action Banner (Design Match: Screen 2 "Book a ride") ── */}
+      {/* ── Action Banner (Design Match: Screen 2 "Book a ride") ── */}
       <Link
         to="/add"
-        className="bg-black text-white hover:bg-neutral-900 dark:bg-white dark:text-black dark:hover:bg-neutral-200 rounded-2xl p-4 shadow-lg flex items-center justify-between transition-transform active:scale-[0.99] group block border border-neutral-800 dark:border-neutral-200"
+        className="bg-[#FF6B00] text-white hover:bg-[#E05E00] rounded-2xl p-4 shadow-lg flex items-center justify-between transition-transform active:scale-[0.99] group block border border-[#EA580C]"
       >
         <div className="space-y-0.5">
-          <span className="block font-black text-base">
+          <span className="block font-black text-base text-white">
             Record Transaction
           </span>
-          <span className="block text-xs text-neutral-400 dark:text-neutral-600 font-medium">
+          <span className="block text-xs text-orange-100 font-medium">
             Fast entry, income &amp; expense tracking
           </span>
         </div>
-        <div className="w-10 h-10 rounded-full bg-white text-black dark:bg-black dark:text-white flex items-center justify-center font-bold text-lg group-hover:translate-x-0.5 transition-transform shrink-0 shadow-md">
+        <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-bold text-lg group-hover:translate-x-0.5 transition-transform shrink-0 shadow-md">
           →
         </div>
       </Link>

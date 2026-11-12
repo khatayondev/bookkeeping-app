@@ -219,7 +219,7 @@ export default function Add() {
           aria-pressed={type === "out"}
           className={`flex-1 min-h-[48px] py-2.5 rounded-xl font-bold text-sm transition-all ${
             type === "out"
-              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              ? "bg-[#FF6B00] text-white shadow-md"
               : "text-neutral-700 dark:text-neutral-300 hover:bg-white/80 dark:hover:bg-neutral-800"
           }`}
           onClick={() => setType("out")}
@@ -231,7 +231,7 @@ export default function Add() {
           aria-pressed={type === "in"}
           className={`flex-1 min-h-[48px] py-2.5 rounded-xl font-bold text-sm transition-all ${
             type === "in"
-              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              ? "bg-[#FF6B00] text-white shadow-md"
               : "text-neutral-700 dark:text-neutral-300 hover:bg-white/80 dark:hover:bg-neutral-800"
           }`}
           onClick={() => setType("in")}
@@ -313,17 +313,17 @@ export default function Add() {
       {/* ── Save button ──────────────────────── */}
       <Button
         variant="primary"
-        className="w-full min-h-[52px] py-3.5 text-lg font-bold rounded-2xl shadow-sm mt-4 flex items-center justify-center gap-2"
+        className="w-full min-h-[52px] py-3.5 text-lg font-bold rounded-2xl shadow-md mt-4 flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white transition-all active:scale-[0.99]"
         disabled={!canSave}
         onClick={handleSave}
       >
         {saving ? (
-          <svg className="w-5 h-5 animate-spin text-white dark:text-black shrink-0" fill="none" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 animate-spin text-white shrink-0" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
           </svg>
         ) : (
-          <svg className="w-5 h-5 text-white dark:text-black shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="w-5 h-5 text-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         )}

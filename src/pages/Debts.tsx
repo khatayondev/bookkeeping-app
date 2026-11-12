@@ -92,7 +92,7 @@ export default function Debts() {
         </div>
         <button
           type="button"
-          className="min-h-[44px] px-4 py-2 text-sm font-bold rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 flex items-center gap-1.5 shadow-md active:scale-95 transition-all"
+          className="min-h-[44px] px-4 py-2 text-sm font-bold rounded-full bg-[#FF6B00] hover:bg-[#E05E00] text-white flex items-center gap-1.5 shadow-md active:scale-95 transition-all"
           onClick={openAddModal}
         >
           <span className="font-bold text-base leading-none">+</span> New Debt
@@ -110,7 +110,7 @@ export default function Debts() {
           aria-selected={activeTab === "owed_to_me"}
           className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 font-bold ${
             activeTab === "owed_to_me"
-              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              ? "bg-[#FF6B00] text-white shadow-md"
               : "bg-white dark:bg-[#16171B] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-800 hover:border-gray-400"
           }`}
           onClick={() => setActiveTab("owed_to_me")}
@@ -123,7 +123,7 @@ export default function Debts() {
           aria-selected={activeTab === "i_owe"}
           className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 font-bold ${
             activeTab === "i_owe"
-              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              ? "bg-[#FF6B00] text-white shadow-md"
               : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
           }`}
           onClick={() => setActiveTab("i_owe")}

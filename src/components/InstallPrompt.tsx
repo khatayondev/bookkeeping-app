@@ -104,7 +104,7 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
         <Button
           onClick={handleInstallClick}
           disabled={isInstalling}
-          className="min-h-[44px] px-3.5 py-2 bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-xs font-bold rounded-lg shadow-sm whitespace-nowrap"
+          className="min-h-[44px] px-4 py-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs font-bold rounded-xl shadow-md whitespace-nowrap active:scale-95 transition-all"
         >
           {isInstalling ? 'Installing…' : 'Install App'}
         </Button>
@@ -131,7 +131,7 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
         <Button
           onClick={handleInstallClick}
           disabled={isInstalling}
-          className="min-h-[44px] px-3.5 py-2 bg-white text-black hover:bg-neutral-200 font-bold text-xs rounded-lg shadow-sm"
+          className="min-h-[44px] px-3.5 py-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white font-bold text-xs rounded-xl shadow-md whitespace-nowrap active:scale-95 transition-all"
         >
           {isInstalling ? 'Installing…' : 'Install'}
         </Button>

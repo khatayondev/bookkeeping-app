@@ -269,7 +269,7 @@ export default function Export() {
                 onClick={() => setPreset(item.key)}
                 className={`min-h-[44px] py-2 px-2 rounded-lg text-xs font-semibold transition-colors flex items-center justify-center ${
                   isSelected
-                    ? 'bg-[#111111] text-white dark:bg-white dark:text-black font-bold shadow-sm'
+                    ? 'bg-[#FF6B00] text-white font-bold shadow-md'
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >

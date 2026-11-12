@@ -59,10 +59,10 @@ export const BottomNav: React.FC = () => {
                 key={item.to}
                 to={item.to}
                 aria-label="Add new transaction"
-                className={`w-11 h-11 rounded-full flex items-center justify-center font-bold text-2xl transition-transform active:scale-95 shrink-0 mx-0.5 shadow-md focus:outline-none focus:ring-2 focus:ring-white ${
+                className={`w-11 h-11 rounded-full flex items-center justify-center font-bold text-2xl transition-transform active:scale-95 shrink-0 mx-0.5 shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF6B00] ${
                   isAddActive
-                    ? "bg-white text-black ring-2 ring-white"
-                    : "bg-white text-black hover:bg-neutral-200"
+                    ? "bg-[#FF6B00] text-white ring-2 ring-white"
+                    : "bg-[#FF6B00] text-white hover:bg-[#E05E00]"
                 }`}
               >
                 +
@@ -80,15 +80,15 @@ export const BottomNav: React.FC = () => {
               key={item.to}
               to={item.to}
               aria-current={isActive ? "page" : undefined}
-              className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-full min-h-[44px] transition-all focus:outline-none focus:ring-2 focus:ring-white ${
+              className={`flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-full min-h-[44px] transition-all focus:outline-none focus:ring-2 focus:ring-[#FF6B00] ${
                 isActive
-                  ? "bg-white text-black font-bold shadow-xs"
+                  ? "bg-[#FF6B00] text-white font-bold shadow-md"
                   : "text-neutral-400 hover:text-white"
               }`}
             >
               <span className="shrink-0">{item.icon ? item.icon() : null}</span>
               {isActive && (
-                <span className="text-[11px] font-bold tracking-tight">
+                <span className="text-[11px] font-bold tracking-tight text-white">
                   {item.label}
                 </span>
               )}

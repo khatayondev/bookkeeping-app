@@ -177,7 +177,7 @@ export default function Transactions() {
         </div>
         <Link
           to="/add"
-          className="min-h-[44px] px-4 py-2 rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 text-sm font-bold shadow-md transition-all flex items-center gap-1.5 active:scale-95"
+          className="min-h-[44px] px-4 py-2 rounded-full bg-[#FF6B00] hover:bg-[#E05E00] text-white text-sm font-bold shadow-md transition-all flex items-center gap-1.5 active:scale-95"
           aria-label="Add transaction"
         >
           <span className="font-bold text-base leading-none">+</span> Add
@@ -196,7 +196,7 @@ export default function Transactions() {
           aria-label="Search description"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full min-h-[44px] rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#121212] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white shadow-2xs text-neutral-900 dark:text-white"
+          className="w-full min-h-[44px] rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#121212] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B00] shadow-2xs text-neutral-900 dark:text-white"
         />
 
         <div className="flex gap-2 text-xs font-semibold overflow-x-auto py-1" role="group" aria-label="Filter transactions by type">
@@ -205,7 +205,7 @@ export default function Transactions() {
             aria-pressed={typeFilter === "all"}
             className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 ${
               typeFilter === "all"
-                ? "bg-black text-white dark:bg-white dark:text-black font-bold shadow-xs"
+                ? "bg-[#FF6B00] text-white font-bold shadow-md"
                 : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
             }`}
             onClick={() => setTypeFilter("all")}
@@ -217,7 +217,7 @@ export default function Transactions() {
             aria-pressed={typeFilter === "in"}
             className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 ${
               typeFilter === "in"
-                ? "bg-black text-white dark:bg-white dark:text-black font-bold shadow-xs"
+                ? "bg-[#FF6B00] text-white font-bold shadow-md"
                 : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
             }`}
             onClick={() => setTypeFilter("in")}
@@ -229,7 +229,7 @@ export default function Transactions() {
             aria-pressed={typeFilter === "out"}
             className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 ${
               typeFilter === "out"
-                ? "bg-black text-white dark:bg-white dark:text-black font-bold shadow-xs"
+                ? "bg-[#FF6B00] text-white font-bold shadow-md"
                 : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
             }`}
             onClick={() => setTypeFilter("out")}
