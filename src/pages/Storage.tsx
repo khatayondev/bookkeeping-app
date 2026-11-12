@@ -80,7 +80,11 @@ export default function Storage() {
       <Card className="p-4 border border-gray-200 dark:border-gray-700 space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="text-xl">🛡️</span>
+            <div className="w-8 h-8 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center border border-neutral-200 dark:border-neutral-700 shrink-0">
+              <svg className="w-4 h-4 text-neutral-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
                 Storage Persistence
@@ -210,7 +214,9 @@ export default function Storage() {
           to="/more/backup"
           className="w-full min-h-[48px] py-3 bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-sm font-bold rounded-2xl flex items-center justify-center gap-2 shadow-sm transition-all"
         >
-          <span>💾</span>
+          <svg className="w-4 h-4 text-white dark:text-black shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+          </svg>
           <span>Go to Backup &amp; Restore</span>
         </Link>
       </div>

@@ -357,7 +357,9 @@ export default function Export() {
           disabled={isExportingCsv || isExportingPdf}
           className="w-full py-3.5 bg-black hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
         >
-          <span className="text-lg">📊</span>
+          <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
           <span>{isExportingCsv ? 'Generating CSV…' : 'Export CSV (Excel Ready)'}</span>
         </Button>
         <p className="text-[11px] text-center text-neutral-500 dark:text-neutral-400">
@@ -370,7 +372,9 @@ export default function Export() {
           disabled={isExportingCsv || isExportingPdf}
           className="w-full py-3.5 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all border border-neutral-700"
         >
-          <span className="text-lg">📄</span>
+          <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
           <span>{isExportingPdf ? 'Generating PDF…' : 'Export PDF Report'}</span>
         </Button>
         <p className="text-[11px] text-center text-gray-500 dark:text-gray-400">

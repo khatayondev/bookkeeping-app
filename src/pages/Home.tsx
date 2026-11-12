@@ -55,24 +55,24 @@ export default function Home() {
         </div>
 
         {/* 3 columns matching screen 1: Income / Expenses / Net */}
-        <div className="grid grid-cols-3 gap-2 text-center pt-1">
+        <div className="grid grid-cols-3 gap-1.5 sm:gap-2 text-center pt-1">
           <div>
-            <span className="block text-lg font-bold font-mono text-white truncate">
+            <span className="block text-sm sm:text-lg font-bold font-mono text-white truncate">
               {formatMoney(totalIn)}
             </span>
-            <span className="text-[11px] text-neutral-400 font-medium">Income</span>
+            <span className="text-[10px] sm:text-[11px] text-neutral-400 font-medium">Income</span>
           </div>
           <div>
-            <span className="block text-lg font-bold font-mono text-white truncate">
+            <span className="block text-sm sm:text-lg font-bold font-mono text-white truncate">
               {formatMoney(totalOut)}
             </span>
-            <span className="text-[11px] text-neutral-400 font-medium">Expenses</span>
+            <span className="text-[10px] sm:text-[11px] text-neutral-400 font-medium">Expenses</span>
           </div>
           <div>
-            <span className="block text-lg font-bold font-mono text-white truncate">
+            <span className="block text-sm sm:text-lg font-bold font-mono text-white truncate">
               {formatMoney(netCash)}
             </span>
-            <span className="text-[11px] text-neutral-300 font-semibold">Net Saved</span>
+            <span className="text-[10px] sm:text-[11px] text-neutral-300 font-semibold">Net Saved</span>
           </div>
         </div>
 
@@ -123,15 +123,20 @@ export default function Home() {
           <span className="text-xl font-black font-mono block text-neutral-900 dark:text-white truncate">
             {formatMoney(totalOwedToMe)}
           </span>
-          <span className="text-xs text-neutral-500 dark:text-neutral-400 font-semibold flex items-center gap-1 mt-1">
-            <span>🤝</span> Owed to you
+          <span className="text-xs text-neutral-500 dark:text-neutral-400 font-semibold flex items-center gap-1.5 mt-1">
+            <svg className="w-3.5 h-3.5 text-neutral-700 dark:text-neutral-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span>Owed to you</span>
           </span>
         </Link>
 
         {/* Right: Black Badge Card */}
         <div className="bg-black dark:bg-[#121212] text-white rounded-2xl p-4 shadow-xs border border-neutral-800 block">
-          <div className="flex items-center gap-1 text-white font-bold text-sm font-mono">
-            <span>★</span>
+          <div className="flex items-center gap-1.5 text-white font-bold text-sm font-mono">
+            <svg className="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
             <span>100% Offline</span>
           </div>
           <span className="text-xs text-neutral-400 font-medium block mt-1">

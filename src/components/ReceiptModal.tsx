@@ -43,7 +43,10 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({
       >
         <div>
           <h3 className="font-semibold text-base sm:text-lg flex items-center gap-2">
-            <span>🧾 {title}</span>
+            <svg className="w-5 h-5 text-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>{title}</span>
             {blob && (
               <span className="text-xs bg-white/20 text-white px-2 py-0.5 rounded-full font-mono">
                 {formatFileSize(blob.size)}
@@ -88,7 +91,10 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({
             }}
             className="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 text-white text-sm font-semibold transition-colors flex items-center gap-1.5"
           >
-            <span>🔄</span> Replace
+            <svg className="w-4 h-4 text-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span>Replace</span>
           </button>
         )}
 
@@ -101,16 +107,19 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({
                 onClose();
               }
             }}
-            className="px-4 py-2 rounded-lg bg-red-600/80 hover:bg-red-600 text-white text-sm font-semibold transition-colors flex items-center gap-1.5"
+            className="px-4 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-semibold transition-colors flex items-center gap-1.5 border border-neutral-600"
           >
-            <span>🗑️</span> Remove
+            <svg className="w-4 h-4 text-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+            <span>Remove</span>
           </button>
         )}
 
         <button
           type="button"
           onClick={onClose}
-          className="px-5 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors"
+          className="px-5 py-2 rounded-lg bg-white text-black text-sm font-semibold hover:bg-neutral-200 transition-colors"
         >
           Done
         </button>

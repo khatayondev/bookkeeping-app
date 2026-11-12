@@ -137,8 +137,10 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
       <div className="w-full max-w-sm space-y-6">
         {/* App Title & Lock Icon */}
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-800 text-white border border-neutral-700 text-3xl shadow-lg">
-            🔒
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-800 text-white border border-neutral-700 shadow-lg">
+            <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">App Locked</h1>
           <p className="text-sm text-gray-400">Enter your numeric PIN to continue</p>
@@ -247,7 +249,9 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
             <span>Verifying…</span>
           ) : (
             <>
-              <span>🔓</span>
+              <svg className="w-5 h-5 text-white dark:text-black shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+              </svg>
               <span>Unlock</span>
             </>
           )}
@@ -317,7 +321,9 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
                   onClick={() => fileInputRef.current?.click()}
                   className="w-full py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold rounded-xl flex items-center justify-center gap-2"
                 >
-                  <span>📥</span>
+                  <svg className="w-4 h-4 text-black shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
                   <span>Restore from Backup File</span>
                 </Button>
                 <p className="text-[11px] text-gray-400 mt-1">
@@ -332,7 +338,9 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
                   onClick={handleEmergencyWipe}
                   className="w-full py-2.5 bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 border border-neutral-600"
                 >
-                  <span>🗑️</span>
+                  <svg className="w-4 h-4 text-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
                   <span>Wipe All App Data</span>
                 </Button>
                 <p className="text-[11px] text-gray-400 mt-1">

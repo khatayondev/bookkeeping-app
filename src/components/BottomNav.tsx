@@ -7,8 +7,8 @@ const navItems = [
     to: "/",
     label: "Home",
     icon: () => (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
     ),
   },
@@ -16,8 +16,8 @@ const navItems = [
     to: "/transactions",
     label: "Ledger",
     icon: () => (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 01-1.581.814L12 15.228l-2.419 1.586a1 1 0 01-1.162 0L6 15.228l-2.419 1.586A1 1 0 012 16V4a2 2 0 012-2zm2 3a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
       </svg>
     ),
   },
@@ -26,8 +26,8 @@ const navItems = [
     to: "/debts",
     label: "Debts",
     icon: () => (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
   },
@@ -35,8 +35,8 @@ const navItems = [
     to: "/more",
     label: "More",
     icon: () => (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     ),
   },
@@ -46,19 +46,24 @@ export const BottomNav: React.FC = () => {
   const { pathname } = useLocation();
 
   return (
-    <nav
-      aria-label="Main Navigation"
-      className="fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto w-full px-4 pt-2 pb-[max(0.75rem,env(safe-area-inset-bottom,0px))] bg-white/95 dark:bg-[#121212]/95 backdrop-blur-md border-t border-neutral-200 dark:border-neutral-800 shadow-2xl md:border-x md:rounded-t-2xl transition-all"
-    >
-      <div className="flex justify-between items-center">
+    <div className="fixed bottom-[max(0.75rem,env(safe-area-inset-bottom,0px))] left-0 right-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none">
+      <nav
+        aria-label="Main Navigation"
+        className="pointer-events-auto w-full max-w-sm bg-black dark:bg-[#141414] text-white rounded-full p-1.5 shadow-2xl border border-neutral-800 flex items-center justify-between transition-all backdrop-blur-lg"
+      >
         {navItems.map((item) => {
           if (item.isAdd) {
+            const isAddActive = pathname.startsWith("/add");
             return (
               <Link
                 key={item.to}
                 to={item.to}
                 aria-label="Add new transaction"
-                className="w-12 h-12 rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 flex items-center justify-center font-bold text-2xl shadow-lg transition-transform active:scale-95 shrink-0 mx-1 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+                className={`w-11 h-11 rounded-full flex items-center justify-center font-bold text-2xl transition-transform active:scale-95 shrink-0 mx-0.5 shadow-md focus:outline-none focus:ring-2 focus:ring-white ${
+                  isAddActive
+                    ? "bg-white text-black ring-2 ring-white"
+                    : "bg-white text-black hover:bg-neutral-200"
+                }`}
               >
                 +
               </Link>
@@ -75,19 +80,23 @@ export const BottomNav: React.FC = () => {
               key={item.to}
               to={item.to}
               aria-current={isActive ? "page" : undefined}
-              className={`flex-1 flex flex-col items-center justify-center py-1 px-1 min-h-[48px] rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white ${
+              className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-full min-h-[44px] transition-all focus:outline-none focus:ring-2 focus:ring-white ${
                 isActive
-                  ? "text-black dark:text-white font-bold"
-                  : "text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                  ? "bg-white text-black font-bold shadow-xs"
+                  : "text-neutral-400 hover:text-white"
               }`}
             >
-              <span className="mb-0.5">{item.icon ? item.icon() : null}</span>
-              <span className="text-[11px] font-semibold">{item.label}</span>
+              <span className="shrink-0">{item.icon ? item.icon() : null}</span>
+              {isActive && (
+                <span className="text-[11px] font-bold tracking-tight">
+                  {item.label}
+                </span>
+              )}
             </Link>
           );
         })}
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

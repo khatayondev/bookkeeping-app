@@ -33,7 +33,9 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
       return (
         <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl p-4 text-xs space-y-2">
           <div className="flex items-center gap-2 font-semibold text-neutral-900 dark:text-neutral-100">
-            <span className="text-base">📲</span>
+            <svg className="w-4 h-4 text-neutral-900 dark:text-neutral-100 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
             <span>Install on iPhone / iPad</span>
           </div>
           <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
@@ -55,7 +57,11 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
       <div className="relative bg-black text-white dark:bg-neutral-900 border border-neutral-800 p-3.5 rounded-xl shadow-md text-xs mb-3">
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-start gap-2.5">
-            <span className="text-xl">📲</span>
+            <div className="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center shrink-0">
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
             <div className="space-y-1">
               <span className="font-bold block text-sm">Install Bookkeeping App</span>
               <p className="text-neutral-300 leading-snug">
@@ -82,7 +88,9 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
       <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl p-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-black text-white dark:bg-white dark:text-black flex items-center justify-center font-bold text-lg shadow-sm">
-            📲
+            <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
           </div>
           <div>
             <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
@@ -107,7 +115,11 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
   return (
     <div className="relative bg-black text-white dark:bg-neutral-900 border border-neutral-800 p-3.5 rounded-xl shadow-md text-xs mb-3 flex items-center justify-between gap-3">
       <div className="flex items-center gap-2.5">
-        <span className="text-xl">📲</span>
+        <div className="w-8 h-8 rounded-lg bg-neutral-800 flex items-center justify-center shrink-0">
+          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
         <div>
           <span className="font-bold block text-sm">Install Bookkeeping App</span>
           <p className="text-neutral-300 text-[11px]">

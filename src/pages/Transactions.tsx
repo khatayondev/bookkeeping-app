@@ -180,7 +180,7 @@ export default function Transactions() {
           className="min-h-[44px] px-4 py-2 rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 text-sm font-bold shadow-md transition-all flex items-center gap-1.5 active:scale-95"
           aria-label="Add transaction"
         >
-          <span>➕</span> Add
+          <span className="font-bold text-base leading-none">+</span> Add
         </Link>
       </div>
 
@@ -241,9 +241,13 @@ export default function Transactions() {
 
       {/* ── Transaction List (Virtualized) ─────────────────── */}
       {!transactions || transactions.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center bg-white/50 dark:bg-gray-800/50">
-          <span className="text-3xl block mb-2">🧾</span>
-          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+        <div className="rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700 p-8 text-center bg-white/50 dark:bg-neutral-900/50 flex flex-col items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-2">
+            <svg className="w-6 h-6 text-neutral-500 dark:text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
             No transactions found
           </p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">

@@ -29,7 +29,7 @@ function AppContent() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-900 dark:text-neutral-100 font-sans">
       {isLocked && <LockScreen />}
-      <header className="px-4 pt-3.5 pb-2 safe-pt max-w-md mx-auto w-full">
+      <header className="px-3 sm:px-4 pt-3.5 pb-2 safe-pt max-w-md mx-auto w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-0.5 rounded-full bg-neutral-900 dark:bg-white shadow-sm">
@@ -61,7 +61,7 @@ function AppContent() {
           </div>
         </div>
       </header>
-      <main className="flex-1 overflow-y-auto px-4 pt-2 pb-24 safe-pb max-w-md mx-auto w-full">
+      <main className="flex-1 overflow-y-auto px-3 sm:px-4 pt-2 pb-28 safe-pb max-w-md mx-auto w-full">
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/transactions" element={<Transactions />} />

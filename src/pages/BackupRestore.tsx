@@ -197,8 +197,10 @@ export default function BackupRestore() {
       {/* ── Backup Section ─────────────────────────── */}
       <Card className="p-4 border border-neutral-200 dark:border-neutral-800 space-y-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center font-bold text-xl border border-neutral-200 dark:border-neutral-700">
-            💾
+          <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center border border-neutral-200 dark:border-neutral-700">
+            <svg className="w-5 h-5 text-neutral-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+            </svg>
           </div>
           <div>
             <h3 className="font-semibold text-neutral-900 dark:text-neutral-100">
@@ -221,7 +223,9 @@ export default function BackupRestore() {
           disabled={isExporting}
           className="w-full min-h-[48px] py-3 bg-black hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
         >
-          <span>📥</span>
+          <svg className="w-4 h-4 text-white dark:text-black shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
           <span>{isExporting ? 'Generating Backup…' : 'Download Backup File'}</span>
         </Button>
       </Card>
@@ -229,8 +233,10 @@ export default function BackupRestore() {
       {/* ── Restore Section ────────────────────────── */}
       <Card className="p-4 border border-neutral-200 dark:border-neutral-800 space-y-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center font-bold text-xl border border-neutral-200 dark:border-neutral-700">
-            🔄
+          <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center border border-neutral-200 dark:border-neutral-700">
+            <svg className="w-5 h-5 text-neutral-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
           </div>
           <div>
             <h3 className="font-semibold text-gray-900 dark:text-gray-100">
@@ -260,7 +266,9 @@ export default function BackupRestore() {
               onClick={() => fileInputRef.current?.click()}
               className="w-full min-h-[48px] py-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 font-medium rounded-lg text-sm border border-gray-300 dark:border-gray-600 transition-colors flex items-center justify-center gap-2"
             >
-              <span>📂</span>
+              <svg className="w-4 h-4 text-neutral-700 dark:text-neutral-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
               <span>Select Backup JSON File</span>
             </Button>
           </div>
@@ -269,7 +277,12 @@ export default function BackupRestore() {
             {/* Validated file summary card */}
             <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl p-3 text-xs space-y-1.5">
               <div className="flex items-center justify-between font-semibold text-neutral-900 dark:text-neutral-100">
-                <span>📄 {selectedFileName}</span>
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-3.5 h-3.5 text-neutral-700 dark:text-neutral-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span>{selectedFileName}</span>
+                </span>
                 <span className="text-[11px] bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 px-1.5 py-0.5 rounded">
                   v{validatedBackup.schemaVersion}
                 </span>

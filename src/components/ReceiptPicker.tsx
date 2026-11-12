@@ -141,19 +141,25 @@ export const ReceiptPicker: React.FC<ReceiptPickerProps> = ({
                 type="button"
                 onClick={handleTriggerPicker}
                 disabled={disabled}
-                className="text-xs font-bold text-neutral-900 dark:text-neutral-100 hover:underline min-h-[44px] py-2 px-3 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 transition-colors flex items-center gap-1"
+                className="text-xs font-bold text-neutral-900 dark:text-neutral-100 hover:underline min-h-[44px] py-2 px-3 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 transition-colors flex items-center gap-1.5"
                 aria-label="Replace receipt photo"
               >
-                🔄 Replace
+                <svg className="w-3.5 h-3.5 text-neutral-900 dark:text-neutral-100 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                <span>Replace</span>
               </button>
               <button
                 type="button"
                 onClick={handleRemove}
                 disabled={disabled}
-                className="text-xs font-bold text-neutral-700 hover:text-black dark:text-neutral-300 dark:hover:text-white min-h-[44px] py-2 px-3 rounded hover:bg-neutral-150 dark:hover:bg-neutral-800 transition-colors flex items-center gap-1"
+                className="text-xs font-bold text-neutral-700 hover:text-black dark:text-neutral-300 dark:hover:text-white min-h-[44px] py-2 px-3 rounded hover:bg-neutral-150 dark:hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
                 aria-label="Remove receipt photo"
               >
-                🗑️ Remove
+                <svg className="w-3.5 h-3.5 text-neutral-700 dark:text-neutral-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+                <span>Remove</span>
               </button>
             </div>
           </div>
@@ -168,7 +174,10 @@ export const ReceiptPicker: React.FC<ReceiptPickerProps> = ({
           disabled={disabled}
           className="w-full min-h-[48px] py-3 px-4 rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700 hover:border-black dark:hover:border-white bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 transition-all flex items-center justify-center gap-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
         >
-          <span className="text-lg">📷</span>
+          <svg className="w-5 h-5 text-neutral-800 dark:text-neutral-200 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
           <span>Attach receipt (Camera or Photos)</span>
         </button>
       )}

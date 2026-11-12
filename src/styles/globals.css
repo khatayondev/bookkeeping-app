@@ -16,6 +16,16 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+/* Ensure all emoji glyphs and unicode symbols render strictly monochromatic */
+.mono-emoji,
+[role="img"],
+span[aria-hidden="true"],
+.grayscale-emoji {
+  filter: grayscale(100%) contrast(150%);
+  display: inline-block;
 }
 
 /* Accessible, high-contrast monochrome focus rings for keyboard navigation */

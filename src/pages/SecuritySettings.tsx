@@ -193,8 +193,10 @@ export default function SecuritySettings() {
       <Card className="p-4 border border-neutral-200 dark:border-neutral-800 space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center font-bold text-xl border border-neutral-200 dark:border-neutral-700">
-              🔒
+            <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center border border-neutral-200 dark:border-neutral-700">
+              <svg className="w-5 h-5 text-neutral-900 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
             </div>
             <div>
               <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
@@ -268,7 +270,9 @@ export default function SecuritySettings() {
                   onClick={lockApp}
                   className="w-full min-h-[44px] py-2.5 bg-gray-800 hover:bg-gray-900 text-white dark:bg-gray-700 dark:hover:bg-gray-600 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 shadow-sm"
                 >
-                  <span>🔒</span>
+                  <svg className="w-4 h-4 text-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
                   <span>Lock App Now</span>
                 </Button>
               </div>
@@ -478,7 +482,9 @@ export default function SecuritySettings() {
       {/* Important Security Notice Card */}
       <div className="p-4 bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl space-y-2 text-xs text-neutral-900 dark:text-neutral-200">
         <div className="flex items-center gap-2 font-bold text-neutral-900 dark:text-neutral-100">
-          <span>⚠️</span>
+          <svg className="w-4 h-4 text-neutral-900 dark:text-neutral-100 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
           <span>Important Notice</span>
         </div>
         <p className="leading-relaxed">
