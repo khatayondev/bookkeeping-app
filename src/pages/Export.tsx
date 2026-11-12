@@ -212,11 +212,7 @@ export default function Export() {
       {feedback && (
         <div
           role="alert"
-          className={`p-3 rounded-lg text-sm flex items-center justify-between ${
-            feedback.type === 'success'
-              ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
-              : 'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300'
-          }`}
+          className="p-3 rounded-xl text-sm flex items-center justify-between bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 font-medium"
         >
           <span>{feedback.message}</span>
           <button
@@ -321,12 +317,12 @@ export default function Export() {
       </Card>
 
       {/* ── Period Summary Preview (Matches Dashboard) ── */}
-      <div className="rounded-xl bg-gradient-to-br from-primary to-blue-700 text-white p-4 shadow-md">
+      <div className="rounded-2xl bg-black dark:bg-[#121212] border border-neutral-800 text-white p-4 shadow-md">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-semibold text-blue-100 uppercase tracking-wider">
+          <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
             Period Summary
           </span>
-          <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full font-medium">
+          <span className="text-xs bg-neutral-800 px-2.5 py-0.5 rounded-full font-medium">
             {filteredTransactions.length}{' '}
             {filteredTransactions.length === 1 ? 'transaction' : 'transactions'}
           </span>
@@ -334,18 +330,18 @@ export default function Export() {
 
         <div className="text-2xl font-bold font-mono mb-3">
           {formatMoney(netCashPesewas)}
-          <span className="text-xs font-normal text-blue-200 ml-2">Net Cashflow</span>
+          <span className="text-xs font-normal text-neutral-400 ml-2">Net Cashflow</span>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 pt-2 border-t border-blue-500/40 text-xs">
+        <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-800 text-xs">
           <div>
-            <span className="text-blue-200 block">Total In</span>
+            <span className="text-neutral-400 block">Total In</span>
             <span className="font-semibold font-mono text-sm">
               {formatMoney(totalInPesewas)}
             </span>
           </div>
           <div>
-            <span className="text-blue-200 block">Total Out</span>
+            <span className="text-neutral-400 block">Total Out</span>
             <span className="font-semibold font-mono text-sm">
               {formatMoney(totalOutPesewas)}
             </span>
@@ -359,12 +355,12 @@ export default function Export() {
         <Button
           onClick={handleExportCsv}
           disabled={isExportingCsv || isExportingPdf}
-          className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+          className="w-full py-3.5 bg-black hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
         >
           <span className="text-lg">📊</span>
           <span>{isExportingCsv ? 'Generating CSV…' : 'Export CSV (Excel Ready)'}</span>
         </Button>
-        <p className="text-[11px] text-center text-gray-500 dark:text-gray-400">
+        <p className="text-[11px] text-center text-neutral-500 dark:text-neutral-400">
           Formatted as UTF-8 with BOM for instant opening in Microsoft Excel or Google Sheets.
         </p>
 
@@ -372,7 +368,7 @@ export default function Export() {
         <Button
           onClick={handleExportPdf}
           disabled={isExportingCsv || isExportingPdf}
-          className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+          className="w-full py-3.5 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all border border-neutral-700"
         >
           <span className="text-lg">📄</span>
           <span>{isExportingPdf ? 'Generating PDF…' : 'Export PDF Report'}</span>

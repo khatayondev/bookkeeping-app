@@ -135,7 +135,7 @@ export default function Calculator() {
       <div className="flex items-center justify-between mb-3">
         <Link
           to="/more"
-          className="text-[#C85600] dark:text-[#FF8A00] text-sm font-semibold hover:underline inline-flex items-center gap-1 min-h-[44px] px-1"
+          className="text-neutral-900 dark:text-neutral-100 text-sm font-bold hover:underline inline-flex items-center gap-1 min-h-[44px] px-1"
           aria-label="Back to More"
         >
           ← More
@@ -174,7 +174,7 @@ export default function Calculator() {
 
       {/* ── Change mode: 2-step banner ──────── */}
       {mode === "change" && (
-        <div className="mb-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-3 text-sm">
+        <div className="mb-3 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 p-3 text-sm">
           <div className="flex items-center justify-between mb-2">
             <div className="flex gap-2">
               <button
@@ -183,10 +183,10 @@ export default function Calculator() {
                   setChangeStep("bill");
                   if (billDisplay) calc.setExpression(billDisplay);
                 }}
-                className={`px-2.5 py-1 rounded text-xs font-semibold ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                   changeStep === "bill"
-                    ? "bg-primary text-white"
-                    : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200"
+                    ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+                    : "bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200"
                 }`}
               >
                 1. Bill: {billDisplay ? `GHS ${billDisplay}` : "Enter Bill"}
@@ -200,10 +200,10 @@ export default function Calculator() {
                     calc.clear();
                   }
                 }}
-                className={`px-2.5 py-1 rounded text-xs font-semibold disabled:opacity-40 ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold disabled:opacity-40 transition-all ${
                   changeStep === "paid"
-                    ? "bg-primary text-white"
-                    : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200"
+                    ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+                    : "bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200"
                 }`}
               >
                 2. Paid
@@ -258,13 +258,7 @@ export default function Calculator() {
 
         {/* Change mode: Change calculation banner */}
         {changeInfo !== null && (
-          <div
-            className={`text-right text-lg font-bold mt-2 pt-2 border-t border-gray-100 dark:border-gray-700 ${
-              changeInfo.changePesewas >= 0
-                ? "text-emerald-700 dark:text-emerald-400"
-                : "text-red-700 dark:text-red-400"
-            }`}
-          >
+          <div className="text-right text-lg font-bold mt-2 pt-2 border-t border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white">
             {changeInfo.changePesewas >= 0
               ? `Change to Give: ${formatMoney(changeInfo.changePesewas)}`
               : `Short by: ${formatMoney(Math.abs(changeInfo.changePesewas))}`}
@@ -288,7 +282,7 @@ export default function Calculator() {
       <div className="flex gap-2 mb-6">
         <button
           type="button"
-          className="flex-1 min-h-[48px] py-3 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 text-base font-semibold active:bg-gray-300 dark:active:bg-gray-600 transition-colors"
+          className="flex-1 min-h-[48px] py-3 rounded-xl bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 text-base font-bold active:bg-neutral-300 dark:active:bg-neutral-700 transition-colors"
           onClick={calc.clear}
         >
           Clear
@@ -296,7 +290,7 @@ export default function Calculator() {
         <button
           type="button"
           disabled={!canUseAsAmount}
-          className="flex-1 min-h-[48px] py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-base font-semibold active:bg-emerald-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-sm"
+          className="flex-1 min-h-[48px] py-3 rounded-xl bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-base font-bold active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
           onClick={handleUseAsAmount}
         >
           {mode === "change" && billPesewas
@@ -342,7 +336,7 @@ export default function Calculator() {
                 </button>
                 <button
                   type="button"
-                  className="text-xs text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 font-semibold shrink-0 min-h-[44px] px-3 py-2 rounded-lg hover:bg-emerald-100 transition-colors flex items-center"
+                  className="text-xs text-neutral-900 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 font-bold shrink-0 min-h-[44px] px-3 py-2 rounded-xl hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors flex items-center"
                   onClick={() => handleUseHistoryEntry(entry)}
                   title="Use as transaction amount in Add Transaction"
                   aria-label={`Use amount GHS ${entry.display} in Add Transaction`}

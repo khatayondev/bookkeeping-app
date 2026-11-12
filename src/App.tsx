@@ -27,35 +27,35 @@ function AppContent() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F7F8FA] dark:bg-[#0D0E12] text-slate-900 dark:text-gray-100 font-sans">
+    <div className="flex flex-col min-h-screen bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-900 dark:text-neutral-100 font-sans">
       {isLocked && <LockScreen />}
       <header className="px-4 pt-3.5 pb-2 safe-pt max-w-md mx-auto w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-0.5 rounded-full bg-gradient-to-tr from-[#FF6E00] to-amber-400 shadow-sm">
+            <div className="p-0.5 rounded-full bg-neutral-900 dark:bg-white shadow-sm">
               <img
                 src="/honey-palace-badge.png"
                 alt="The Honey Palace Logo"
-                className="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-zinc-900"
+                className="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-neutral-900"
               />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <h1 className="text-base font-black tracking-tight text-slate-900 dark:text-white">
-                  Honey <span className="text-[#C85600] dark:text-[#FF8A00]">Palace</span>
+                <h1 className="text-base font-black tracking-tight text-neutral-900 dark:text-white">
+                  Honey Palace
                 </h1>
-                <span className="text-[10px] bg-orange-100 dark:bg-orange-950/80 text-orange-800 dark:text-orange-300 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="text-[10px] bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-700 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
                   Bookkeeping
                 </span>
               </div>
-              <p className="text-[11px] text-gray-500 dark:text-gray-400 font-medium">
+              <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-medium">
                 Offline-First Mobile Ledger
               </p>
             </div>
           </div>
           <div className="text-right">
-            <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px] font-bold text-neutral-800 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-neutral-900 dark:bg-white animate-pulse" />
               Offline
             </span>
           </div>

@@ -64,22 +64,22 @@ export default function DevSeedSection() {
   return (
     <div
       data-testid="dev-seed-section"
-      className="rounded-xl border-2 border-dashed border-amber-400 bg-amber-50 dark:bg-amber-950/20 p-4 space-y-3"
+      className="rounded-2xl border-2 border-dashed border-neutral-300 dark:border-neutral-700 bg-neutral-100/60 dark:bg-neutral-900/60 p-4 space-y-3"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-lg">🛠️</span>
           <div>
-            <h3 className="text-sm font-bold text-amber-900 dark:text-amber-200">
+            <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
               Developer Tools (DEV ONLY)
             </h3>
-            <p className="text-xs text-amber-700 dark:text-amber-400">
+            <p className="text-xs text-neutral-600 dark:text-neutral-400">
               Transactions in DB: <strong>{counts.txCount.toLocaleString()}</strong> | Debts:{' '}
               <strong>{counts.debtCount}</strong>
             </p>
           </div>
         </div>
-        <span className="text-[10px] uppercase font-bold tracking-wider bg-amber-200 text-amber-900 dark:bg-amber-800 dark:text-amber-100 px-2 py-0.5 rounded">
+        <span className="text-[10px] uppercase font-bold tracking-wider bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 px-2 py-0.5 rounded-full border border-neutral-300 dark:border-neutral-700">
           Dev Mode
         </span>
       </div>
@@ -90,7 +90,7 @@ export default function DevSeedSection() {
           onClick={handleSeed}
           disabled={loading}
           data-testid="seed-5000-btn"
-          className="flex-1 min-w-[180px] bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-semibold text-xs py-2 px-3 rounded-lg shadow-sm disabled:opacity-50 transition-colors flex items-center justify-center gap-1.5"
+          className="flex-1 min-w-[180px] bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200 font-bold text-xs py-2 px-3 rounded-xl shadow-sm disabled:opacity-50 transition-colors flex items-center justify-center gap-1.5"
         >
           {loading ? (
             <span>⏳ Seeding database...</span>
@@ -107,14 +107,14 @@ export default function DevSeedSection() {
           onClick={handleClear}
           disabled={loading}
           data-testid="clear-dev-btn"
-          className="bg-gray-200 hover:bg-red-100 hover:text-red-700 text-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-red-950 dark:hover:text-red-300 font-semibold text-xs py-2 px-3 rounded-lg transition-colors"
+          className="bg-neutral-200 hover:bg-neutral-300 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 font-bold text-xs py-2 px-3 rounded-xl transition-colors"
         >
           Clear DB
         </button>
       </div>
 
       {result && (
-        <div className="text-xs text-emerald-700 dark:text-emerald-400 font-medium bg-emerald-50 dark:bg-emerald-950/30 p-2 rounded-lg border border-emerald-200 dark:border-emerald-800">
+        <div className="text-xs text-neutral-900 dark:text-neutral-100 font-medium bg-neutral-200/60 dark:bg-neutral-800/60 p-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700">
           ✅ Successfully seeded {result.transactionsCount.toLocaleString()} transactions and{' '}
           {result.debtsCount} debts in {result.durationMs}ms!
         </div>

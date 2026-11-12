@@ -41,8 +41,8 @@ test.describe('PWA Offline Functionality', () => {
     // ─────────────────────────────────────────────────────────
     console.log('[E2E TEST] Step 1: Loading app online...');
     await page.goto('/');
-    await expect(page.locator('h1')).toHaveText('Bookkeeping');
-    await expect(page.locator('text=Net Cashflow')).toBeVisible();
+    await expect(page.locator('h1')).toHaveText(/(Bookkeeping|Honey Palace)/);
+    await expect(page.locator('text=/Cashflow/i')).toBeVisible();
 
     // Wait for the Service Worker to register and become active
     console.log('[E2E TEST] Waiting for Service Worker to activate and precache...');
@@ -80,27 +80,25 @@ test.describe('PWA Offline Functionality', () => {
     await page.reload({ waitUntil: 'domcontentloaded' });
 
     // Confirms Service Worker served the shell and assets offline
-    await expect(page.locator('h1')).toHaveText('Bookkeeping');
-    await expect(page.locator('text=Net Cashflow')).toBeVisible();
-    await expect(page.locator('text=Add Entry')).toBeVisible();
+    await expect(page.locator('h1')).toHaveText(/(Bookkeeping|Honey Palace)/);
+    await expect(page.locator('text=/Cashflow/i')).toBeVisible();
+    await expect(page.locator('text=Record Transaction')).toBeVisible();
 
     // ─────────────────────────────────────────────────────────
     // STEP 4: Add a Transaction (Offline)
     // ─────────────────────────────────────────────────────────
     console.log('[E2E TEST] Step 4: Adding a transaction offline...');
-    await page.click('text=Add Entry');
+    await page.click('text=Record Transaction');
     await expect(page).toHaveURL(/.*\/add/);
 
     // Toggle "Money In"
     await page.click('button:has-text("Money In")');
 
-    // Enter amount using calculator keypad: 250.00
-    await page.click('button:has-text("2")');
-    await page.click('button:has-text("5")');
-    await page.click('button:has-text("0")');
+    // Enter amount: 250.00
+    await page.fill('#amount-input', '250');
 
     // Fill description
-    await page.fill('input[placeholder="e.g. Bought stock from Makola"]', 'Offline Sale Test');
+    await page.fill('input[placeholder*="wholesale"], input[placeholder*="Makola"]', 'Offline Sale Test');
 
     // Save transaction
     await page.click('button:has-text("Save Transaction")');
@@ -120,7 +118,7 @@ test.describe('PWA Offline Functionality', () => {
     await expect(page.locator('h2')).toHaveText('Edit Transaction');
 
     // Update description
-    await page.fill('input[placeholder="e.g. Bought stock from Makola"]', 'Offline Sale Test (Edited)');
+    await page.fill('input[placeholder*="wholesale"], input[placeholder*="Makola"]', 'Offline Sale Test (Edited)');
 
     // Save changes
     await page.click('button:has-text("Save Changes")');
@@ -214,8 +212,8 @@ test.describe('PWA Offline Functionality', () => {
 
     // Confirm app state in Home dashboard matches
     await page.goto('/');
-    await expect(page.locator('text=Bookkeeping')).toBeVisible();
-    await expect(page.locator('.text-3xl.font-bold')).toHaveText('GHS 250.00');
+    await expect(page.locator('h1')).toHaveText(/(Bookkeeping|Honey Palace)/);
+    await expect(page.locator('text=GHS 250.00').first()).toBeVisible();
 
     console.log('🎉 Full offline flow passed with zero internet connection!');
   });

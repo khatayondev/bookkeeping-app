@@ -94,16 +94,16 @@ export const CalcKeypad: React.FC<CalcKeypadProps> = ({
 
         let bg: string;
         if (isEquals) {
-          bg = "bg-primary text-white active:bg-primary/80";
+          bg = "bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 font-bold shadow-sm";
         } else if (isBackspace) {
           bg =
-            "bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 active:bg-red-200 dark:active:bg-red-900/60 font-semibold";
+            "bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 active:bg-neutral-300 dark:active:bg-neutral-700 font-bold";
         } else if (key.type === "op") {
           bg =
-            "bg-gray-200 dark:bg-gray-700 text-blue-700 dark:text-blue-300 active:bg-gray-300 dark:active:bg-gray-600 font-bold";
+            "bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-white active:bg-neutral-300 dark:active:bg-neutral-700 font-bold";
         } else {
           bg =
-            "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 active:bg-gray-100 dark:active:bg-gray-700 font-semibold";
+            "bg-white dark:bg-[#121212] text-neutral-900 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-800 active:bg-neutral-100 dark:active:bg-neutral-800 font-semibold";
         }
 
         return (

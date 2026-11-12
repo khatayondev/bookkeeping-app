@@ -48,7 +48,7 @@ export const BottomNav: React.FC = () => {
   return (
     <nav
       aria-label="Main Navigation"
-      className="sticky bottom-0 z-40 max-w-md mx-auto w-full px-4 pt-2 pb-[max(0.6rem,env(safe-area-inset-bottom,0px))] bg-white/95 dark:bg-[#111216]/95 backdrop-blur-md border-t border-gray-100 dark:border-gray-800 shadow-xl"
+      className="sticky bottom-0 z-40 max-w-md mx-auto w-full px-4 pt-2 pb-[max(0.6rem,env(safe-area-inset-bottom,0px))] bg-white/95 dark:bg-[#121212]/95 backdrop-blur-md border-t border-neutral-200 dark:border-neutral-800 shadow-xl"
     >
       <div className="flex justify-between items-center">
         {navItems.map((item) => {
@@ -58,7 +58,7 @@ export const BottomNav: React.FC = () => {
                 key={item.to}
                 to={item.to}
                 aria-label="Add new transaction"
-                className="w-12 h-12 rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 flex items-center justify-center font-bold text-2xl shadow-lg transition-transform active:scale-95 shrink-0 mx-1"
+                className="w-12 h-12 rounded-full bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 flex items-center justify-center font-bold text-2xl shadow-lg transition-transform active:scale-95 shrink-0 mx-1"
               >
                 +
               </Link>
@@ -71,10 +71,10 @@ export const BottomNav: React.FC = () => {
               key={item.to}
               to={item.to}
               aria-current={isActive ? "page" : undefined}
-              className={`flex-1 flex flex-col items-center justify-center py-1 px-1 min-h-[48px] rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-[#C85600] ${
+              className={`flex-1 flex flex-col items-center justify-center py-1 px-1 min-h-[48px] rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white ${
                 isActive
-                  ? "text-[#C85600] dark:text-[#FF8A00] font-bold"
-                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  ? "text-black dark:text-white font-bold"
+                  : "text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white"
               }`}
             >
               <span className="mb-0.5">{item.icon ? item.icon() : null}</span>

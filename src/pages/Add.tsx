@@ -3,7 +3,7 @@
  * Add / Edit Transaction screen.
  *
  * Features:
- * - Calculator-enabled Amount field with on-screen keypad.
+ * - Clean, streamlined Amount input with currency indicator.
  * - Type toggle (Money In / Money Out).
  * - Category and Payment Method selectors.
  * - Optional description.
@@ -19,9 +19,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Select } from "../components/Select";
 import { Input } from "../components/Input";
-import { AmountField } from "../components/AmountField";
 import { ReceiptPicker } from "../components/ReceiptPicker";
-import { useCalcInput } from "../hooks/useCalcInput";
 import { useCategories } from "../hooks/useCategories";
 import { usePaymentMethods } from "../hooks/usePaymentMethods";
 import { addTransaction, updateTransaction, addReceipt, getTransactionById } from "../db/queries";
@@ -60,14 +58,13 @@ export default function Add() {
     queryParamAmount ||
     (initialTx ? (initialTx.amountPesewas / 100).toFixed(2) : "");
 
-  const calc = useCalcInput(prefillAmount);
+  const [amount, setAmount] = useState(prefillAmount);
 
-  const setExpression = calc.setExpression;
   useEffect(() => {
     if (prefillAmount) {
-      setExpression(prefillAmount);
+      setAmount(prefillAmount);
     }
-  }, [prefillAmount, setExpression]);
+  }, [prefillAmount]);
 
   // Form fields
   const [type, setType] = useState<"in" | "out">("out");
@@ -98,9 +95,9 @@ export default function Add() {
           `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
         );
       }
-      setExpression((initialTx.amountPesewas / 100).toFixed(2));
+      setAmount((initialTx.amountPesewas / 100).toFixed(2));
     }
-  }, [initialTx, setExpression]);
+  }, [initialTx]);
 
   const allCategories = useCategories();
   const paymentMethods = usePaymentMethods();
@@ -127,17 +124,26 @@ export default function Add() {
     }
   }, [paymentMethods, paymentMethodId]);
 
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    // Allow digits and at most one decimal point
+    if (/^[0-9]*\.?[0-9]*$/.test(val)) {
+      setAmount(val);
+    }
+  };
+
+  const parsedAmount = parseFloat(amount || "0");
+  const amountPesewas = isNaN(parsedAmount) ? 0 : Math.round(parsedAmount * 100);
+
   const canSave =
-    calc.isValid &&
-    calc.valuePesewas !== null &&
-    calc.valuePesewas > 0 &&
+    amountPesewas > 0 &&
     categoryId !== "" &&
     paymentMethodId !== "" &&
     date !== "" &&
     !saving;
 
   const handleSave = async () => {
-    if (!canSave || calc.valuePesewas === null) return;
+    if (!canSave || amountPesewas <= 0) return;
     setSaving(true);
     try {
       // Determine final receiptId
@@ -154,7 +160,7 @@ export default function Add() {
       if (isEditing && editId) {
         await updateTransaction(editId, {
           date: new Date(date + "T00:00:00"),
-          amountPesewas: calc.valuePesewas,
+          amountPesewas,
           type,
           categoryId,
           paymentMethodId,
@@ -164,7 +170,7 @@ export default function Add() {
       } else {
         await addTransaction({
           date: new Date(date + "T00:00:00"),
-          amountPesewas: calc.valuePesewas,
+          amountPesewas,
           type,
           categoryId,
           paymentMethodId,
@@ -199,7 +205,7 @@ export default function Add() {
           <button
             type="button"
             onClick={() => navigate("/transactions")}
-            className="min-h-[44px] px-2 flex items-center text-sm font-medium text-gray-700 hover:text-gray-950 dark:text-gray-300 dark:hover:text-white underline"
+            className="min-h-[44px] px-2 flex items-center text-sm font-medium text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white underline"
           >
             Cancel
           </button>
@@ -207,14 +213,14 @@ export default function Add() {
       </div>
 
       {/* ── Type toggle ──────────────────────── */}
-      <div className="flex gap-2.5 mb-4 p-1 bg-amber-50/80 dark:bg-gray-900 border border-amber-200/50 dark:border-gray-800 rounded-2xl" role="group" aria-label="Transaction type">
+      <div className="flex gap-2.5 mb-4 p-1 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl" role="group" aria-label="Transaction type">
         <button
           type="button"
           aria-pressed={type === "out"}
           className={`flex-1 min-h-[48px] py-2.5 rounded-xl font-bold text-sm transition-all ${
             type === "out"
-              ? "bg-red-600 text-white shadow-md shadow-red-600/20"
-              : "text-gray-700 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-800"
+              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              : "text-neutral-700 dark:text-neutral-300 hover:bg-white/80 dark:hover:bg-neutral-800"
           }`}
           onClick={() => setType("out")}
         >
@@ -225,8 +231,8 @@ export default function Add() {
           aria-pressed={type === "in"}
           className={`flex-1 min-h-[48px] py-2.5 rounded-xl font-bold text-sm transition-all ${
             type === "in"
-              ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
-              : "text-gray-700 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-800"
+              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              : "text-neutral-700 dark:text-neutral-300 hover:bg-white/80 dark:hover:bg-neutral-800"
           }`}
           onClick={() => setType("in")}
         >
@@ -234,8 +240,28 @@ export default function Add() {
         </button>
       </div>
 
-      {/* ── Amount with calculator ────────────── */}
-      <AmountField calc={calc} />
+      {/* ── Clean Amount Input (No on-screen keypad) ── */}
+      <div className="mb-4">
+        <label htmlFor="amount-input" className="block text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-1.5">
+          Amount
+        </label>
+        <div className="relative">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-600 dark:text-neutral-300 font-bold text-base select-none pointer-events-none">
+            GHS
+          </span>
+          <input
+            id="amount-input"
+            type="text"
+            inputMode="decimal"
+            autoComplete="off"
+            placeholder="0.00"
+            value={amount}
+            onChange={handleAmountChange}
+            aria-label="Amount in GHS"
+            className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#121212] pl-16 pr-4 py-3.5 text-right text-2xl font-bold font-mono text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white shadow-2xs"
+          />
+        </div>
+      </div>
 
       {/* ── Category ─────────────────────────── */}
       {categoryOptions.length > 0 && (
@@ -269,7 +295,7 @@ export default function Add() {
       <Input
         label="Description (optional)"
         type="text"
-        placeholder="e.g. Bought stock from Makola"
+        placeholder="e.g. Honey jars wholesale, bottling"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
@@ -285,7 +311,7 @@ export default function Add() {
       {/* ── Save button ──────────────────────── */}
       <Button
         variant="primary"
-        className="w-full min-h-[52px] py-3.5 text-lg font-bold rounded-2xl shadow-lg shadow-orange-500/25 mt-4 flex items-center justify-center gap-2"
+        className="w-full min-h-[52px] py-3.5 text-lg font-bold rounded-2xl shadow-sm mt-4 flex items-center justify-center gap-2"
         disabled={!canSave}
         onClick={handleSave}
       >
@@ -300,13 +326,8 @@ export default function Add() {
       </Button>
 
       {/* Validation hint when save is blocked */}
-      {calc.expression.trim().length > 0 && !calc.isValid && (
-        <p className="text-sm text-red-600 dark:text-red-400 mt-2 text-center font-medium">
-          Fix the expression before saving
-        </p>
-      )}
-      {calc.isValid && calc.valuePesewas !== null && calc.valuePesewas <= 0 && (
-        <p className="text-sm text-amber-700 dark:text-amber-400 mt-2 text-center font-medium">
+      {amount.trim().length > 0 && amountPesewas <= 0 && (
+        <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2 text-center font-medium">
           Amount must be greater than zero
         </p>
       )}

@@ -59,9 +59,8 @@ This document provides a comprehensive step-by-step manual testing checklist and
 
 ### Step 4: Add a New Transaction While Offline
 1. Tap **➕ Add** or click **Add Entry** from the dashboard.
-2. Select transaction type: tap **Money In** (green).
-3. Using the on-screen keypad, enter an amount:
-   - Tap `2`, `5`, `0`. Verify the display shows `250.00`.
+2. Select transaction type: tap **Money In**.
+3. In the amount field, enter `250.00`.
 4. Select a category (e.g., **Sales**).
 5. Select a payment method (e.g., **Cash**).
 6. Enter a description: `Manual Offline Test Sale`.

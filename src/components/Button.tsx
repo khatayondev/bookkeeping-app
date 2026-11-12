@@ -13,9 +13,9 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const base = "rounded-xl font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all";
   const styles: Record<string, string> = {
-    primary: "bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-md shadow-orange-500/20 active:scale-[0.99] focus:ring-orange-500",
-    secondary: "bg-amber-50/70 dark:bg-gray-850 text-gray-800 dark:text-gray-100 hover:bg-amber-100/80 dark:hover:bg-gray-800 border border-amber-200/60 dark:border-gray-700 focus:ring-orange-500",
-    ghost: "bg-transparent text-orange-700 dark:text-amber-400 hover:bg-orange-50 dark:hover:bg-gray-800 focus:ring-orange-500",
+    primary: "bg-black text-white hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 shadow-sm active:scale-[0.99] focus:ring-black dark:focus:ring-white",
+    secondary: "bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 focus:ring-black dark:focus:ring-white",
+    ghost: "bg-transparent text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus:ring-black dark:focus:ring-white",
   };
   return (
     <button

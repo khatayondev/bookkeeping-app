@@ -70,7 +70,7 @@ export default function Storage() {
         <button
           onClick={refreshStorageData}
           disabled={isChecking}
-          className="text-xs text-[#C85600] dark:text-[#FF8A00] font-bold hover:underline min-h-[44px] px-2.5 py-1 flex items-center"
+          className="text-xs text-neutral-900 dark:text-neutral-100 font-bold hover:underline min-h-[44px] px-2.5 py-1 flex items-center"
         >
           {isChecking ? 'Checking…' : 'Refresh'}
         </button>
@@ -93,8 +93,8 @@ export default function Storage() {
           <span
             className={`text-xs px-2.5 py-1 rounded-full font-bold ${
               storageInfo?.persisted
-                ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
-                : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
+                ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700'
+                : 'bg-neutral-100 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700'
             }`}
           >
             {storageInfo?.persisted ? '✓ Persisted' : 'Denied / Ephemeral'}
@@ -103,16 +103,16 @@ export default function Storage() {
 
         {/* Plain-language explanation */}
         {storageInfo?.persisted ? (
-          <div className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-xl p-3 text-xs text-emerald-900 dark:text-emerald-200">
+          <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl p-3 text-xs text-neutral-900 dark:text-neutral-200">
             Storage is persisted. Your offline records won&apos;t be cleared by the browser during storage cleanups.
           </div>
         ) : (
-          <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-xl p-3 text-xs text-amber-900 dark:text-amber-200 space-y-1.5">
+          <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl p-3 text-xs text-neutral-900 dark:text-neutral-200 space-y-1.5">
             <p className="font-semibold">Backups matter more!</p>
             <p className="leading-relaxed">
               Persistent storage was denied or not granted by your browser. If your device runs low on disk space, the browser may evict offline cached databases.
             </p>
-            <p className="font-medium text-amber-800 dark:text-amber-300">
+            <p className="font-medium text-neutral-700 dark:text-neutral-300">
               Please take regular JSON backups in <strong>More &gt; Backup &amp; Restore</strong> to keep your bookkeeping records safe.
             </p>
           </div>
@@ -121,9 +121,10 @@ export default function Storage() {
         {!storageInfo?.persisted && (
           <Button
             type="button"
+            variant="secondary"
             onClick={refreshStorageData}
             disabled={isChecking}
-            className="w-full py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs font-semibold rounded-lg transition-colors"
+            className="w-full py-2.5 text-xs font-semibold rounded-xl"
           >
             Request Storage Persistence
           </Button>
@@ -131,26 +132,26 @@ export default function Storage() {
       </Card>
 
       {/* ── Space & Quota Card ─────────────────────── */}
-      <Card className="p-4 border border-gray-200 dark:border-gray-700 space-y-3">
-        <span className="block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+      <Card className="p-4 border border-neutral-200 dark:border-neutral-800 space-y-3">
+        <span className="block text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
           Disk Space &amp; Quota
         </span>
 
         <div className="grid grid-cols-2 gap-3 pt-1">
-          <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
-            <span className="text-[11px] text-gray-500 dark:text-gray-400 block mb-0.5">
+          <div className="bg-neutral-50 dark:bg-neutral-900 p-3 rounded-lg border border-neutral-200 dark:border-neutral-800">
+            <span className="text-[11px] text-neutral-500 dark:text-neutral-400 block mb-0.5">
               Used Space
             </span>
-            <span className="text-base font-bold font-mono text-gray-900 dark:text-gray-100">
+            <span className="text-base font-bold font-mono text-neutral-900 dark:text-neutral-100">
               {formatBytes(storageInfo?.usageBytes ?? 0)}
             </span>
           </div>
 
-          <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
-            <span className="text-[11px] text-gray-500 dark:text-gray-400 block mb-0.5">
+          <div className="bg-neutral-50 dark:bg-neutral-900 p-3 rounded-lg border border-neutral-200 dark:border-neutral-800">
+            <span className="text-[11px] text-neutral-500 dark:text-neutral-400 block mb-0.5">
               Remaining Space
             </span>
-            <span className="text-base font-bold font-mono text-[#C85600] dark:text-[#FF8A00]">
+            <span className="text-base font-bold font-mono text-neutral-900 dark:text-white">
               {formatBytes(storageInfo?.remainingBytes ?? 0)}
             </span>
           </div>
@@ -158,13 +159,13 @@ export default function Storage() {
 
         {/* Progress bar */}
         <div className="space-y-1 pt-1">
-          <div className="flex justify-between text-[11px] text-gray-500">
+          <div className="flex justify-between text-[11px] text-neutral-500">
             <span>Quota: {formatBytes(storageInfo?.quotaBytes ?? 0)}</span>
             <span>{(storageInfo?.percentUsed ?? 0).toFixed(2)}% used</span>
           </div>
-          <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+          <div className="w-full bg-neutral-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden">
             <div
-              className="bg-primary h-full rounded-full transition-all duration-500"
+              className="bg-black dark:bg-white h-full rounded-full transition-all duration-500"
               style={{
                 width: `${Math.min(100, Math.max(1, storageInfo?.percentUsed ?? 0))}%`,
               }}
@@ -207,7 +208,7 @@ export default function Storage() {
       <div className="pt-1">
         <Link
           to="/more/backup"
-          className="w-full min-h-[48px] py-3 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold rounded-2xl flex items-center justify-center gap-2 shadow-sm transition-all"
+          className="w-full min-h-[48px] py-3 bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-sm font-bold rounded-2xl flex items-center justify-center gap-2 shadow-sm transition-all"
         >
           <span>💾</span>
           <span>Go to Backup &amp; Restore</span>

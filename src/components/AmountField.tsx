@@ -73,11 +73,11 @@ export const AmountField: React.FC<AmountFieldProps> = ({
       {hasOperators && (
         <div className="mt-1.5 text-right pr-1 text-sm min-h-[1.25rem]">
           {calc.isValid ? (
-            <span className="text-emerald-700 dark:text-emerald-400 font-semibold">
+            <span className="text-neutral-900 dark:text-neutral-100 font-bold font-mono">
               = GHS {calc.display}
             </span>
           ) : (
-            <span className="text-red-700 dark:text-red-400 font-medium">
+            <span className="text-neutral-600 dark:text-neutral-400 font-medium">
               {calc.error || "Invalid expression"}
             </span>
           )}
@@ -88,7 +88,7 @@ export const AmountField: React.FC<AmountFieldProps> = ({
       {calc.isPlain &&
         calc.expression.trim().length > 0 &&
         !calc.isValid && (
-          <div className="mt-1 text-right pr-1 text-sm text-red-700 dark:text-red-400 font-medium">
+          <div className="mt-1 text-right pr-1 text-sm text-neutral-600 dark:text-neutral-400 font-medium">
             {calc.error || "Invalid number"}
           </div>
         )}

@@ -11,16 +11,23 @@
 
 html,
 body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   min-height: 100%;
   min-height: 100dvh;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
 
-/* Accessible, high-contrast focus rings for keyboard navigation */
+/* Accessible, high-contrast monochrome focus rings for keyboard navigation */
 :focus-visible {
-  outline: 2px solid #FF6E00;
+  outline: 2px solid #000000;
   outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :focus-visible {
+    outline-color: #FFFFFF;
+  }
 }
 
 button:focus-visible,
@@ -28,8 +35,18 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #FF6E00;
+  outline: 2px solid #000000;
   outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline-color: #FFFFFF;
+  }
 }
 
 /* Reduced motion preference support for users with vestibular/motion disorders */

@@ -176,11 +176,7 @@ export default function SecuritySettings() {
       {feedback && (
         <div
           role="alert"
-          className={`p-3 rounded-lg text-xs flex items-center justify-between ${
-            feedback.type === 'success'
-              ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
-              : 'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300'
-          }`}
+          className="p-3 rounded-xl text-xs flex items-center justify-between bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 font-medium"
         >
           <span>{feedback.message}</span>
           <button
@@ -194,17 +190,17 @@ export default function SecuritySettings() {
       )}
 
       {/* PIN Status Card */}
-      <Card className="p-4 border border-gray-200 dark:border-gray-700 space-y-3">
+      <Card className="p-4 border border-neutral-200 dark:border-neutral-800 space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold text-xl">
+            <div className="w-10 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white flex items-center justify-center font-bold text-xl border border-neutral-200 dark:border-neutral-700">
               🔒
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+              <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
                 App PIN Lock
               </h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">
                 {isPinSet ? 'Enabled with PBKDF2 hash' : 'Optional numeric lock'}
               </p>
             </div>
@@ -212,8 +208,8 @@ export default function SecuritySettings() {
           <span
             className={`text-xs px-2.5 py-1 rounded-full font-bold ${
               isPinSet
-                ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
-                : 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700'
+                : 'bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800'
             }`}
           >
             {isPinSet ? 'Active' : 'Disabled'}
@@ -405,11 +401,11 @@ export default function SecuritySettings() {
 
       {/* Form: Remove PIN */}
       {activeAction === 'remove' && (
-        <Card className="p-4 border border-red-300 dark:border-red-800 space-y-3">
-          <h3 className="font-semibold text-sm text-red-600 dark:text-red-400">
+        <Card className="p-4 border border-neutral-300 dark:border-neutral-700 space-y-3">
+          <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">
             Remove PIN Lock
           </h3>
-          <p className="text-xs text-gray-600 dark:text-gray-300">
+          <p className="text-xs text-neutral-600 dark:text-neutral-300">
             To remove PIN protection, please enter your current PIN.
           </p>
           <form onSubmit={handleRemovePin} className="space-y-3">
@@ -440,7 +436,7 @@ export default function SecuritySettings() {
               <Button
                 type="submit"
                 disabled={isSubmitting || !currentPinInput}
-                className="flex-1 min-h-[44px] py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold rounded-lg shadow-sm"
+                className="flex-1 min-h-[44px] py-2.5 bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-xs font-semibold rounded-lg shadow-sm"
               >
                 {isSubmitting ? 'Removing…' : 'Confirm & Remove'}
               </Button>
@@ -451,14 +447,14 @@ export default function SecuritySettings() {
 
       {/* Auto-lock Timeout Configuration Card */}
       {isPinSet && (
-        <Card className="p-4 border border-gray-200 dark:border-gray-700 space-y-3">
+        <Card className="p-4 border border-neutral-200 dark:border-neutral-800 space-y-3">
           <div className="flex items-center gap-2.5">
             <span className="text-lg">⏱️</span>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+              <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
                 Auto-lock in Background
               </h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">
                 Lock app after being minimized or switching tabs
               </p>
             </div>
@@ -480,15 +476,15 @@ export default function SecuritySettings() {
       )}
 
       {/* Important Security Notice Card */}
-      <div className="p-4 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-xl space-y-2 text-xs text-amber-900 dark:text-amber-200">
-        <div className="flex items-center gap-2 font-bold text-amber-800 dark:text-amber-300">
+      <div className="p-4 bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl space-y-2 text-xs text-neutral-900 dark:text-neutral-200">
+        <div className="flex items-center gap-2 font-bold text-neutral-900 dark:text-neutral-100">
           <span>⚠️</span>
           <span>Important Notice</span>
         </div>
         <p className="leading-relaxed">
           <strong>Note:</strong> A forgotten PIN can only be reset by restoring from a backup or wiping the app data.
         </p>
-        <p className="text-[11px] text-amber-700 dark:text-amber-400 leading-normal">
+        <p className="text-[11px] text-neutral-600 dark:text-neutral-400 leading-normal">
           For your privacy and security, Bookkeeping stores only a cryptographically salted PBKDF2 hash using Web Crypto. The PIN itself is never saved or transmitted.
         </p>
       </div>

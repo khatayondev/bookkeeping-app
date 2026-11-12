@@ -125,14 +125,14 @@ export const ReceiptPicker: React.FC<ReceiptPickerProps> = ({
           {/* Details & Actions */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1.5 mb-1">
-              <span className="font-semibold text-sm text-gray-900 dark:text-gray-100 truncate">
+              <span className="font-semibold text-sm text-neutral-900 dark:text-neutral-100 truncate">
                 Receipt Attached
               </span>
-              <span className="text-[11px] bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 px-2 py-0.5 rounded-full font-mono font-bold">
+              <span className="text-[11px] bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 px-2 py-0.5 rounded-full font-mono font-bold">
                 {formatFileSize(activeBlob.size)}
               </span>
             </div>
-            <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">
+            <p className="text-xs text-neutral-600 dark:text-neutral-300 mb-2">
               Tap thumbnail to view full-screen
             </p>
 
@@ -141,7 +141,7 @@ export const ReceiptPicker: React.FC<ReceiptPickerProps> = ({
                 type="button"
                 onClick={handleTriggerPicker}
                 disabled={disabled}
-                className="text-xs font-semibold text-primary hover:text-primary/80 min-h-[44px] py-2 px-3 rounded bg-primary/10 hover:bg-primary/20 transition-colors flex items-center gap-1"
+                className="text-xs font-bold text-neutral-900 dark:text-neutral-100 hover:underline min-h-[44px] py-2 px-3 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 transition-colors flex items-center gap-1"
                 aria-label="Replace receipt photo"
               >
                 🔄 Replace
@@ -150,7 +150,7 @@ export const ReceiptPicker: React.FC<ReceiptPickerProps> = ({
                 type="button"
                 onClick={handleRemove}
                 disabled={disabled}
-                className="text-xs font-semibold text-red-700 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 min-h-[44px] py-2 px-3 rounded hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors flex items-center gap-1"
+                className="text-xs font-bold text-neutral-700 hover:text-black dark:text-neutral-300 dark:hover:text-white min-h-[44px] py-2 px-3 rounded hover:bg-neutral-150 dark:hover:bg-neutral-800 transition-colors flex items-center gap-1"
                 aria-label="Remove receipt photo"
               >
                 🗑️ Remove
@@ -166,7 +166,7 @@ export const ReceiptPicker: React.FC<ReceiptPickerProps> = ({
           type="button"
           onClick={handleTriggerPicker}
           disabled={disabled}
-          className="w-full min-h-[48px] py-3 px-4 rounded-xl border border-dashed border-gray-300 dark:border-gray-600 hover:border-primary dark:hover:border-primary bg-gray-50/50 dark:bg-gray-800/50 hover:bg-primary/5 text-gray-700 dark:text-gray-200 hover:text-primary transition-all flex items-center justify-center gap-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/40"
+          className="w-full min-h-[48px] py-3 px-4 rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700 hover:border-black dark:hover:border-white bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 transition-all flex items-center justify-center gap-2 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
         >
           <span className="text-lg">📷</span>
           <span>Attach receipt (Camera or Photos)</span>

@@ -137,7 +137,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
       <div className="w-full max-w-sm space-y-6">
         {/* App Title & Lock Icon */}
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 text-primary border border-primary/30 text-3xl shadow-lg">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-800 text-white border border-neutral-700 text-3xl shadow-lg">
             🔒
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">App Locked</h1>
@@ -151,8 +151,8 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
               key={idx}
               className={`w-4 h-4 rounded-full border-2 transition-all duration-150 ${
                 idx < enteredPin.length
-                  ? 'bg-primary border-primary scale-110 shadow-sm shadow-primary/50'
-                  : 'bg-transparent border-gray-600'
+                  ? 'bg-white border-white scale-110 shadow-sm'
+                  : 'bg-transparent border-neutral-600'
               }`}
             />
           ))}
@@ -162,9 +162,9 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
         {throttle.isLockedOut ? (
           <div
             role="alert"
-            className="p-3 bg-red-950/60 border border-red-500/50 rounded-xl text-center text-xs text-red-300 space-y-1 shadow-inner animate-pulse"
+            className="p-3 bg-neutral-900 border border-neutral-700 rounded-xl text-center text-xs text-neutral-200 space-y-1 shadow-inner animate-pulse"
           >
-            <p className="font-bold text-red-200">Too many failed attempts!</p>
+            <p className="font-bold text-white">Too many failed attempts!</p>
             <p>
               Please wait{' '}
               <span className="font-mono text-sm font-bold text-white">
@@ -176,7 +176,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
         ) : errorMessage ? (
           <div
             role="alert"
-            className="p-2.5 bg-red-950/60 border border-red-500/40 rounded-xl text-center text-xs text-red-300"
+            className="p-2.5 bg-neutral-900 border border-neutral-700 rounded-xl text-center text-xs text-neutral-200"
           >
             {errorMessage}
           </div>
@@ -262,7 +262,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
           <button
             type="button"
             onClick={() => setShowEmergencyModal(true)}
-            className="text-xs text-primary hover:text-primary/80 underline font-semibold min-h-[44px] px-2 py-1 inline-flex items-center"
+            className="text-xs text-white hover:underline font-semibold min-h-[44px] px-2 py-1 inline-flex items-center"
           >
             Forgot PIN or need to reset?
           </button>
@@ -297,7 +297,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
             </p>
 
             {emergencyFeedback && (
-              <div className="p-2.5 rounded-lg bg-blue-900/40 border border-blue-500/40 text-xs text-blue-200">
+              <div className="p-2.5 rounded-lg bg-neutral-800 border border-neutral-700 text-xs text-neutral-200">
                 {emergencyFeedback}
               </div>
             )}
@@ -315,7 +315,7 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
                 <Button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2"
+                  className="w-full py-2.5 bg-white text-black hover:bg-neutral-200 text-xs font-bold rounded-xl flex items-center justify-center gap-2"
                 >
                   <span>📥</span>
                   <span>Restore from Backup File</span>
@@ -326,11 +326,11 @@ export const LockScreen: React.FC<LockScreenProps> = ({ onUnlocked }) => {
               </div>
 
               {/* Option 2: Wipe App Data */}
-              <div className="pt-2 border-t border-gray-700">
+              <div className="pt-2 border-t border-neutral-700">
                 <Button
                   type="button"
                   onClick={handleEmergencyWipe}
-                  className="w-full py-2.5 bg-red-600/80 hover:bg-red-700 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2"
+                  className="w-full py-2.5 bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 border border-neutral-600"
                 >
                   <span>🗑️</span>
                   <span>Wipe All App Data</span>

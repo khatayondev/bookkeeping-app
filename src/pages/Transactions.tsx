@@ -47,7 +47,7 @@ const TransactionRow = React.memo(function TransactionRow({
 }: TransactionRowProps) {
   return (
     <div
-      className="rounded-2xl border border-gray-100 dark:border-zinc-800 bg-white dark:bg-[#16171B] p-4 shadow-2xs hover:border-[#FF6E00]/60 hover:shadow-xs transition-all flex items-center justify-between gap-3 group mb-2.5"
+      className="rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#121212] p-4 shadow-2xs hover:border-neutral-400 dark:hover:border-neutral-600 hover:shadow-xs transition-all flex items-center justify-between gap-3 group mb-2.5"
     >
       {/* Left Column: Category Tag, Description, Date */}
       <div
@@ -55,21 +55,21 @@ const TransactionRow = React.memo(function TransactionRow({
         onClick={() => onEdit(tx)}
       >
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-[11px] font-bold text-[#C85600] dark:text-[#FF8A00] uppercase tracking-wider">
+          <span className="text-[11px] font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
             {categoryName}
           </span>
           {tx.debtId && (
-            <span className="text-[10px] bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-300 px-2 py-0.5 rounded-full font-bold">
+            <span className="text-[10px] bg-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 px-2 py-0.5 rounded-full font-bold">
               Debt
             </span>
           )}
         </div>
 
-        <div className="font-extrabold text-sm text-slate-900 dark:text-white truncate mb-0.5">
+        <div className="font-extrabold text-sm text-neutral-900 dark:text-white truncate mb-0.5">
           {tx.description || categoryName}
         </div>
 
-        <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1.5 flex-wrap font-medium">
+        <div className="text-xs text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 flex-wrap font-medium">
           <span>{formattedDate}</span>
           <span>•</span>
           <span>{methodName}</span>
@@ -93,13 +93,7 @@ const TransactionRow = React.memo(function TransactionRow({
           className="text-right cursor-pointer"
           onClick={() => onEdit(tx)}
         >
-          <span
-            className={`block font-mono font-black text-base ${
-              tx.type === "in"
-                ? "text-emerald-700 dark:text-emerald-400"
-                : "text-slate-900 dark:text-white"
-            }`}
-          >
+          <span className="block font-mono font-bold text-base text-neutral-900 dark:text-white">
             {tx.type === "in" ? "+" : "-"}
             {formattedAmount}
           </span>
@@ -108,7 +102,7 @@ const TransactionRow = React.memo(function TransactionRow({
         <button
           type="button"
           onClick={() => onDelete(tx)}
-          className="text-gray-400 hover:text-red-700 dark:text-gray-500 dark:hover:text-red-400 min-h-[44px] min-w-[44px] flex items-center justify-center text-sm rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+          className="text-neutral-400 hover:text-black dark:text-neutral-500 dark:hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center text-sm rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
           title="Delete transaction"
           aria-label="Delete transaction"
         >
@@ -202,7 +196,7 @@ export default function Transactions() {
           aria-label="Search description"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full min-h-[44px] rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#16171B] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6E00] shadow-2xs"
+          className="w-full min-h-[44px] rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#121212] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white shadow-2xs text-neutral-900 dark:text-white"
         />
 
         <div className="flex gap-2 text-xs font-semibold overflow-x-auto py-1" role="group" aria-label="Filter transactions by type">
@@ -212,7 +206,7 @@ export default function Transactions() {
             className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 ${
               typeFilter === "all"
                 ? "bg-black text-white dark:bg-white dark:text-black font-bold shadow-xs"
-                : "bg-white dark:bg-[#16171B] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-800 hover:border-gray-400"
+                : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
             }`}
             onClick={() => setTypeFilter("all")}
           >
@@ -223,8 +217,8 @@ export default function Transactions() {
             aria-pressed={typeFilter === "in"}
             className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 ${
               typeFilter === "in"
-                ? "bg-emerald-600 text-white font-bold shadow-xs"
-                : "bg-white dark:bg-[#16171B] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-800 hover:border-gray-400"
+                ? "bg-black text-white dark:bg-white dark:text-black font-bold shadow-xs"
+                : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
             }`}
             onClick={() => setTypeFilter("in")}
           >
@@ -235,8 +229,8 @@ export default function Transactions() {
             aria-pressed={typeFilter === "out"}
             className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 ${
               typeFilter === "out"
-                ? "bg-[#FF6E00] text-white font-bold shadow-xs"
-                : "bg-white dark:bg-[#16171B] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-800 hover:border-gray-400"
+                ? "bg-black text-white dark:bg-white dark:text-black font-bold shadow-xs"
+                : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
             }`}
             onClick={() => setTypeFilter("out")}
           >

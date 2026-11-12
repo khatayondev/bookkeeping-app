@@ -31,18 +31,18 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
   if (isIosSafari) {
     if (variant === 'card') {
       return (
-        <div className="bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-xs space-y-2">
-          <div className="flex items-center gap-2 font-semibold text-blue-900 dark:text-blue-100">
+        <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl p-4 text-xs space-y-2">
+          <div className="flex items-center gap-2 font-semibold text-neutral-900 dark:text-neutral-100">
             <span className="text-base">📲</span>
             <span>Install on iPhone / iPad</span>
           </div>
-          <p className="text-blue-800 dark:text-blue-300 leading-relaxed">
+          <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
             To install this app on your home screen: tap the <strong>Share</strong> button (
-            <span className="inline-block px-1 bg-white dark:bg-gray-800 rounded border border-blue-300 font-mono text-[10px]">
+            <span className="inline-block px-1 bg-white dark:bg-neutral-800 rounded border border-neutral-300 dark:border-neutral-700 font-mono text-[10px]">
               ⎋
             </span>
             ) in Safari, then tap <strong>&ldquo;Add to Home Screen&rdquo;</strong> (
-            <span className="inline-block px-1 bg-white dark:bg-gray-800 rounded border border-blue-300 font-mono text-[10px]">
+            <span className="inline-block px-1 bg-white dark:bg-neutral-800 rounded border border-neutral-300 dark:border-neutral-700 font-mono text-[10px]">
               ⊞
             </span>
             ).
@@ -52,13 +52,13 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
     }
 
     return (
-      <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-3.5 rounded-xl shadow-md text-xs mb-3">
+      <div className="relative bg-black text-white dark:bg-neutral-900 border border-neutral-800 p-3.5 rounded-xl shadow-md text-xs mb-3">
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-start gap-2.5">
             <span className="text-xl">📲</span>
             <div className="space-y-1">
               <span className="font-bold block text-sm">Install Bookkeeping App</span>
-              <p className="text-blue-100 leading-snug">
+              <p className="text-neutral-300 leading-snug">
                 Tap the Safari <strong>Share</strong> button (⎋), then tap{' '}
                 <strong>&ldquo;Add to Home Screen&rdquo;</strong> to use offline anytime.
               </p>
@@ -66,7 +66,7 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
           </div>
           <button
             onClick={() => setIsDismissed(true)}
-            className="text-blue-200 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center text-sm font-bold leading-none rounded-lg focus-visible:outline-white"
+            className="text-neutral-400 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center text-sm font-bold leading-none rounded-lg focus-visible:outline-white"
             aria-label="Dismiss banner"
           >
             ✕
@@ -79,16 +79,16 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
   // ── Native BeforeInstallPrompt ──────────────────────────
   if (variant === 'card') {
     return (
-      <div className="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center justify-between gap-3">
+      <div className="bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 rounded-xl p-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-lg shadow-sm">
+          <div className="w-10 h-10 rounded-lg bg-black text-white dark:bg-white dark:text-black flex items-center justify-center font-bold text-lg shadow-sm">
             📲
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+            <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 text-sm">
               Install Bookkeeping
             </h3>
-            <p className="text-xs text-gray-600 dark:text-gray-300">
+            <p className="text-xs text-neutral-600 dark:text-neutral-400">
               Install on your home screen for quick offline access
             </p>
           </div>
@@ -96,7 +96,7 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
         <Button
           onClick={handleInstallClick}
           disabled={isInstalling}
-          className="min-h-[44px] px-3.5 py-2 bg-primary hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-sm whitespace-nowrap"
+          className="min-h-[44px] px-3.5 py-2 bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200 text-xs font-bold rounded-lg shadow-sm whitespace-nowrap"
         >
           {isInstalling ? 'Installing…' : 'Install App'}
         </Button>
@@ -105,12 +105,12 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
   }
 
   return (
-    <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3.5 rounded-xl shadow-md text-xs mb-3 flex items-center justify-between gap-3">
+    <div className="relative bg-black text-white dark:bg-neutral-900 border border-neutral-800 p-3.5 rounded-xl shadow-md text-xs mb-3 flex items-center justify-between gap-3">
       <div className="flex items-center gap-2.5">
         <span className="text-xl">📲</span>
         <div>
           <span className="font-bold block text-sm">Install Bookkeeping App</span>
-          <p className="text-blue-100 text-[11px]">
+          <p className="text-neutral-300 text-[11px]">
             Fast access from your home screen with complete offline support.
           </p>
         </div>
@@ -119,13 +119,13 @@ export function InstallPrompt({ variant = 'banner' }: InstallPromptProps) {
         <Button
           onClick={handleInstallClick}
           disabled={isInstalling}
-          className="min-h-[44px] px-3.5 py-2 bg-white text-primary hover:bg-blue-50 font-bold text-xs rounded-lg shadow-sm"
+          className="min-h-[44px] px-3.5 py-2 bg-white text-black hover:bg-neutral-200 font-bold text-xs rounded-lg shadow-sm"
         >
           {isInstalling ? 'Installing…' : 'Install'}
         </Button>
         <button
           onClick={() => setIsDismissed(true)}
-          className="text-blue-200 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center text-sm font-bold rounded-lg focus-visible:outline-white"
+          className="text-neutral-400 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center text-sm font-bold rounded-lg focus-visible:outline-white"
           aria-label="Dismiss banner"
         >
           ✕

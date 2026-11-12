@@ -123,8 +123,8 @@ export default function Debts() {
           aria-selected={activeTab === "i_owe"}
           className={`min-h-[44px] px-5 py-2 rounded-full transition-all shrink-0 font-bold ${
             activeTab === "i_owe"
-              ? "bg-[#FF6E00] text-white shadow-xs"
-              : "bg-white dark:bg-[#16171B] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-800 hover:border-gray-400"
+              ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+              : "bg-white dark:bg-[#121212] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400"
           }`}
           onClick={() => setActiveTab("i_owe")}
         >
@@ -133,7 +133,7 @@ export default function Debts() {
       </div>
 
       {/* ── Filter bar ───────────────────────── */}
-      <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-300 px-1">
+      <div className="flex items-center justify-between text-xs text-neutral-600 dark:text-neutral-300 px-1">
         <span>
           Showing {debts.length} {showSettled ? "total" : "open"} debt
           {debts.length === 1 ? "" : "s"}
@@ -141,7 +141,7 @@ export default function Debts() {
         <button
           type="button"
           onClick={() => setShowSettled(!showSettled)}
-          className="hover:underline font-bold text-[#C85600] dark:text-[#FF8A00] min-h-[44px] py-2 px-1 flex items-center"
+          className="hover:underline font-bold text-neutral-900 dark:text-white min-h-[44px] py-2 px-1 flex items-center"
         >
           {showSettled ? "Hide settled debts" : "Show settled debts"}
         </button>
@@ -177,25 +177,25 @@ export default function Debts() {
                     setSelectedDebt(debt);
                   }
                 }}
-                className={`w-full text-left rounded-2xl p-4 border transition-all shadow-2xs flex items-center justify-between gap-3 bg-white dark:bg-[#16171B] cursor-pointer ${
+                className={`w-full text-left rounded-2xl p-4 border transition-all shadow-2xs flex items-center justify-between gap-3 bg-white dark:bg-[#121212] cursor-pointer ${
                   overdue
-                    ? "border-red-300 dark:border-red-800/80 bg-red-50/20 dark:bg-red-950/10"
-                    : "border-gray-100 dark:border-zinc-800 hover:border-[#FF6E00]/60"
+                    ? "border-neutral-400 dark:border-neutral-600 bg-neutral-100/50 dark:bg-neutral-900/50"
+                    : "border-neutral-200 dark:border-neutral-800 hover:border-black dark:hover:border-white"
                 }`}
               >
                 {/* Left: Person Name & Due Date */}
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <span className="font-semibold text-gray-900 dark:text-gray-100 truncate text-base">
+                    <span className="font-semibold text-neutral-900 dark:text-neutral-100 truncate text-base">
                       {debt.personName}
                     </span>
                     {overdue && (
-                      <span className="bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
+                      <span className="bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
                         Overdue
                       </span>
                     )}
                     {isSettled && (
-                      <span className="bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
+                      <span className="bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
                         Paid
                       </span>
                     )}
@@ -225,13 +225,7 @@ export default function Debts() {
                 {/* Right: Remaining Amount & Call Button */}
                 <div className="flex items-center gap-2.5 shrink-0">
                   <div className="text-right">
-                    <span
-                      className={`block font-mono font-bold text-base ${
-                        activeTab === "owed_to_me"
-                          ? "text-emerald-700 dark:text-emerald-400"
-                          : "text-red-700 dark:text-red-400"
-                      }`}
-                    >
+                    <span className="block font-mono font-bold text-base text-neutral-900 dark:text-white">
                       {formatMoney(remaining)}
                     </span>
                     {debt.paidPesewas > 0 && (
@@ -445,10 +439,10 @@ function AddEditDebtModal({
             <button
               type="button"
               aria-pressed={kind === "owed_to_me"}
-              className={`flex-1 min-h-[44px] py-2 text-sm font-semibold rounded-lg transition-colors ${
+              className={`flex-1 min-h-[44px] py-2 text-sm font-bold rounded-xl transition-all ${
                 kind === "owed_to_me"
-                  ? "bg-emerald-600 text-white"
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                  ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+                  : "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
               }`}
               onClick={() => setKind("owed_to_me")}
             >
@@ -457,10 +451,10 @@ function AddEditDebtModal({
             <button
               type="button"
               aria-pressed={kind === "i_owe"}
-              className={`flex-1 min-h-[44px] py-2 text-sm font-semibold rounded-lg transition-colors ${
+              className={`flex-1 min-h-[44px] py-2 text-sm font-bold rounded-xl transition-all ${
                 kind === "i_owe"
-                  ? "bg-red-600 text-white"
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                  ? "bg-black text-white dark:bg-white dark:text-black shadow-xs"
+                  : "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
               }`}
               onClick={() => setKind("i_owe")}
             >
@@ -627,17 +621,17 @@ function DebtDetailsModal({
                 {debt.personName}
               </h3>
               {overdue && (
-                <span className="bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
+                <span className="bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
                   Overdue
                 </span>
               )}
               {isSettled && (
-                <span className="bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
+                <span className="bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold">
                   Settled
                 </span>
               )}
             </div>
-            <span className="text-xs text-gray-600 dark:text-gray-300 font-medium">
+            <span className="text-xs text-neutral-600 dark:text-neutral-300 font-medium">
               {debt.kind === "owed_to_me" ? "Owed to me" : "I owe this person"}
             </span>
           </div>
@@ -645,7 +639,7 @@ function DebtDetailsModal({
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 text-xl font-bold min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg"
+            className="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white text-xl font-bold min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg"
             aria-label="Close dialog"
           >
             ✕
@@ -653,32 +647,26 @@ function DebtDetailsModal({
         </div>
 
         {/* Balance Card */}
-        <div className="rounded-xl bg-gray-50 dark:bg-gray-750 border border-gray-200 dark:border-gray-700 p-4 mb-4">
+        <div className="rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 p-4 mb-4">
           <div className="flex justify-between items-baseline mb-2">
-            <span className="text-xs text-gray-600 dark:text-gray-300 uppercase tracking-wider font-semibold">
+            <span className="text-xs text-neutral-600 dark:text-neutral-400 uppercase tracking-wider font-semibold">
               Remaining Balance
             </span>
-            <span
-              className={`text-2xl font-mono font-bold ${
-                debt.kind === "owed_to_me"
-                  ? "text-emerald-700 dark:text-emerald-400"
-                  : "text-red-700 dark:text-red-400"
-              }`}
-            >
+            <span className="text-2xl font-mono font-bold text-neutral-900 dark:text-white">
               {formatMoney(remaining)}
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300">
+          <div className="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-300">
             <div>
-              <span className="text-gray-500 block">Total Debt:</span>
-              <span className="font-mono font-semibold">
+              <span className="text-neutral-500 block">Total Debt:</span>
+              <span className="font-mono font-semibold text-neutral-900 dark:text-white">
                 {formatMoney(debt.amountPesewas)}
               </span>
             </div>
             <div>
-              <span className="text-gray-500 block">Paid So Far:</span>
-              <span className="font-mono font-semibold text-emerald-700 dark:text-emerald-400">
+              <span className="text-neutral-500 block">Paid So Far:</span>
+              <span className="font-mono font-semibold text-neutral-900 dark:text-white">
                 {formatMoney(debt.paidPesewas)}
               </span>
             </div>
@@ -686,11 +674,11 @@ function DebtDetailsModal({
         </div>
 
         {/* Meta Info */}
-        <div className="space-y-2 mb-5 text-sm text-gray-600 dark:text-gray-300">
+        <div className="space-y-2 mb-5 text-sm text-neutral-600 dark:text-neutral-300">
           {debt.dueDate && (
             <div className="flex justify-between">
-              <span className="text-gray-400">Due Date:</span>
-              <span className={`font-medium ${overdue ? "text-red-600 font-bold" : ""}`}>
+              <span className="text-neutral-400">Due Date:</span>
+              <span className="font-medium text-neutral-900 dark:text-neutral-100">
                 {formatDate(new Date(debt.dueDate))}
               </span>
             </div>
@@ -698,12 +686,12 @@ function DebtDetailsModal({
 
           {debt.phone && (
             <div className="flex justify-between items-center">
-              <span className="text-gray-400">Phone:</span>
+              <span className="text-neutral-400">Phone:</span>
               <div className="flex items-center gap-2">
                 <span className="font-mono">{debt.phone}</span>
                 <a
                   href={`tel:${debt.phone}`}
-                  className="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-semibold hover:bg-primary/20"
+                  className="px-2.5 py-1 rounded-lg bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 text-xs font-semibold hover:underline"
                 >
                   Call 📞
                 </a>
@@ -713,8 +701,8 @@ function DebtDetailsModal({
 
           {debt.note && (
             <div className="pt-1">
-              <span className="text-gray-400 block text-xs">Note:</span>
-              <p className="text-xs bg-gray-50 dark:bg-gray-700 p-2 rounded mt-0.5 italic">
+              <span className="text-neutral-400 block text-xs">Note:</span>
+              <p className="text-xs bg-neutral-100 dark:bg-neutral-900 p-2 rounded-lg mt-0.5 italic">
                 {debt.note}
               </p>
             </div>
@@ -726,7 +714,7 @@ function DebtDetailsModal({
           {!isSettled && (
             <Button
               variant="primary"
-              className="flex-1 min-h-[44px] py-2.5 font-semibold text-sm bg-emerald-600 hover:bg-emerald-700"
+              className="flex-1 min-h-[44px] py-2.5 font-bold text-sm bg-black hover:bg-neutral-800 text-white dark:bg-white dark:text-black dark:hover:bg-neutral-200"
               onClick={onRecordPayment}
             >
               Record Payment 💵
