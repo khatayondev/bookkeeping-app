@@ -300,13 +300,15 @@ export default function Add() {
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      {/* ── Attach Receipt (Client-Side Compression) ── */}
+      {/* ── Attach Receipt (Commented out for now) ── */}
+      {/*
       <ReceiptPicker
         existingReceiptId={existingReceiptId}
         currentBlob={receiptBlob}
         onReceiptChange={(blob) => setReceiptBlob(blob)}
         disabled={saving}
       />
+      */}
 
       {/* ── Save button ──────────────────────── */}
       <Button

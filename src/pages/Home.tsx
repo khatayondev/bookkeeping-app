@@ -105,7 +105,7 @@ export default function Home() {
             Record Transaction
           </span>
           <span className="block text-xs text-neutral-400 dark:text-neutral-600 font-medium">
-            Fast entry, calculator &amp; receipt photo
+            Fast entry, income &amp; expense tracking
           </span>
         </div>
         <div className="w-10 h-10 rounded-full bg-white text-black dark:bg-black dark:text-white flex items-center justify-center font-bold text-lg group-hover:translate-x-0.5 transition-transform shrink-0 shadow-md">
